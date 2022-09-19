@@ -25,6 +25,36 @@ public class Pizza {
         this.isDeepDish = isDeepDish;
     }
 
+    /** A toString method always has the method header of
+     * public String toString()
+     * This method NEVER has print statements
+     * Instead it creates a "print-ready" String and returns it
+     * This method will be called on our behalf whenever we print
+     * a Pizza object reference variable
+     *
+     * Essentially we are telling Java how to "print" a pizza object
+     * @return
+     */
+    public String toString(){
+        String str = "";
+        str += "My pizza is from " + store + " it is " + inches + " inches";
+        str += "\n";
+
+        if (isDeepDish){
+            str += "I love deep dish!";
+        }
+        else {
+            str += "Thin crust is the way to go!";
+        }
+        if (numToppings == 0){
+            str += "\n I also love cheese pizza!";
+        }
+        else{
+            str += "\n My pizza has " + numToppings + " toppings";
+        }
+        return str;
+    }
+
     public String getStore() {
         return store;
     }
