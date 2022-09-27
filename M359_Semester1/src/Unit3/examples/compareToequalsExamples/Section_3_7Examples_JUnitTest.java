@@ -1,4 +1,3 @@
-
 package Unit3.examples.compareToequalsExamples;
 
 
@@ -30,11 +29,11 @@ public class Section_3_7Examples_JUnitTest {
         hisAdidas = new Shoe("Adidas", "Original Superstar", 11, 145.0);
         herConverse = new Shoe("Converse", "Chuck Taylor All Star Lift High Top", 7, 75.00);
 
-//        per1 = new Course("M448-M468", 29, "Mrs. Denna");
-//        per3 = new Course("M359", 19, "Mrs. Denna");
-//        per4 = new Course("M448-M468", 31, "Mrs. Denna");
-//        per6 = new Course("M448-M468", 31, "Mrs. Denna");
-//        per8 = new Course("M359", 27, "Mrs. Denna");
+        per1 = new Course("M448-M468", 29, "Mrs. Denna");
+        per3 = new Course("M359", 19, "Mrs. Denna");
+        per4 = new Course("M448-M468", 31, "Mrs. Denna");
+        per6 = new Course("M448-M468", 31, "Mrs. Denna");
+        per8 = new Course("M359", 27, "Mrs. Denna");
     }
 
     @After
