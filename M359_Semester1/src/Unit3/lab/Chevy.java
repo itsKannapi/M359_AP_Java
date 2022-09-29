@@ -9,7 +9,6 @@ public class Chevy {
     private String modelColor;
     private double priceWithUpgrades;
     private double grandTotal;
-
     private boolean luxPackStat; // luxury package status
     private boolean fourWhlDriveStat; // 4WD package status
     private boolean sportsPackStat; // sports package status
@@ -17,7 +16,7 @@ public class Chevy {
     private String make = "Chevrolet";
     private double taxRate = 12.2;
     private double luxuryPackIncrease;
-    private double fourWDIncrease;
+    private double fourWDIncrease = 3500.0;
     private double sportsPackIncrease;
     private double fuelEfficiencyDeduct;
 
@@ -130,9 +129,30 @@ public class Chevy {
         str += "**************************************************";
         str += year + make + model + "(" + modelColor + ")";
         str += "\t BASE PRICE: \t\t\t\t " + basePrice;
-        str += "MILES: \t\t\t\t " + mileage;
+        str += "\t MILES: \t\t\t\t " + mileage;
+        str += "\t PACKAGES: ";
 
+        if (luxPackStat == true){
+            str += "\n - Luxury Package";
+        }
+        if (fourWhlDriveStat == true){
+            str += "\n - 4WD Package";
+        }
+        if (sportsPackStat == true){
+            str += "\n - Sport Package";
+        }
+        if (luxPackStat == false && fourWhlDriveStat == false && sportsPackStat == false){
+            str += "\n - None";
+        }
+
+        str += "PRICE WITH UPGRADES: \t\t\t" + priceWithUpgrades;
+        str += "FINAL PRICE WITH TAX: \t\t\t" + grandTotal;
 
         return str;
     }
+//    public double calcPrice(){
+//        if (luxPackStat == true){
+//
+//       }
+//    }
 }
