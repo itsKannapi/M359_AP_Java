@@ -4,7 +4,7 @@ public class Chevy {
     private int year;
     private int mileage;
     private double fuelEfficiency;
-    private double basePrice;
+    private int basePrice;
     private String model;
     private String modelColor;
     private double priceWithUpgrades;
@@ -22,39 +22,31 @@ public class Chevy {
 
     // Full Constructor
 
-    public Chevy(int year, int mileage, double fuelEfficiency, double basePrice, String model, String modelColor,
-                 double priceWithUpgrades, double grandTotal, boolean luxPackStat, boolean fourWhlDriveStat,
-                 boolean sportsPackStat, String make, double taxRate, double luxuryPackIncrease, double fourWDIncrease,
-                 double sportsPackIncrease, double fuelEfficiencyDeduct) {
+    public Chevy(int year, int mileage, double fuelEfficiency, int basePrice, String model,
+                 String modelColor, boolean luxPackStat, boolean fourWhlDriveStat,
+                 boolean sportsPackStat) {
         this.year = year;
         this.mileage = mileage;
         this.fuelEfficiency = fuelEfficiency;
         this.basePrice = basePrice;
         this.model = model;
         this.modelColor = modelColor;
-        this.priceWithUpgrades = priceWithUpgrades;
-        this.grandTotal = grandTotal;
         this.luxPackStat = luxPackStat;
         this.fourWhlDriveStat = fourWhlDriveStat;
         this.sportsPackStat = sportsPackStat;
-        this.make = make;
-        this.taxRate = taxRate;
-        this.luxuryPackIncrease = luxuryPackIncrease;
-        this.fourWDIncrease = fourWDIncrease;
-        this.sportsPackIncrease = sportsPackIncrease;
-        this.fuelEfficiencyDeduct = fuelEfficiencyDeduct;
     }
+
 
     // Default Constructor
 
 
-    public Chevy(int year, int mileage, double fuelEfficiency, double basePrice, String model, String modelColor) {
-        this.year = year;
-        this.mileage = mileage;
-        this.fuelEfficiency = fuelEfficiency;
-        this.basePrice = basePrice;
-        this.model = model;
-        this.modelColor = modelColor;
+    public Chevy() {
+        this.year = 2021;
+        this.mileage = 0;
+        this.fuelEfficiency = 35;
+        this.basePrice = 16000;
+        this.model = "Trax";
+        this.modelColor = "White";
     }
 
     //compares the mileage in between cars
@@ -150,9 +142,18 @@ public class Chevy {
 
         return str;
     }
-//    public double calcPrice(){
-//        if (luxPackStat == true){
-//
-//       }
-//    }
+   public double calcPrice(){
+        grandTotal += basePrice;
+        if (luxPackStat == true){
+            grandTotal += basePrice * .20;
+       }
+        if (fourWhlDriveStat == true){
+            grandTotal += 3500;
+        }
+        if (sportsPackStat == true){
+            grandTotal += basePrice * .15;
+            fuelEfficiency = fuelEfficiency * .80;
+        }
+        return grandTotal + (grandTotal * 0.122);
+    }
 }
