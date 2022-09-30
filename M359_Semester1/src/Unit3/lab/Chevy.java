@@ -125,21 +125,21 @@ public class Chevy {
         str += "\n\t PACKAGES: ";
 
         if (luxPackStat == true){
-            str += "\n\t - Luxury Package";
+            str += "\n\t\t - Luxury Package";
         }
         if (fourWhlDriveStat == true){
-            str += "\n\t - 4WD Package";
+            str += "\n\t\t - 4WD Package";
         }
         if (sportsPackStat == true){
-            str += "\n\t - Sport Package";
+            str += "\n\t\t - Sport Package";
         }
         if (luxPackStat == false && fourWhlDriveStat == false && sportsPackStat == false){
-            str += "\n\t - None";
+            str += "\n\t\t - None";
         }
 
         str += "\n\n\t PRICE WITH UPGRADES: \t\t\t" + calcPrice();
         str += "\n\t FINAL PRICE WITH TAX: \t\t\t" + calcPrice();
-        str += "\n\t **************************************************";
+        str += "\n**************************************************";
 
         return str;
     }
