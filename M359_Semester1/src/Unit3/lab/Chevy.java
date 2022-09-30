@@ -119,40 +119,48 @@ public class Chevy {
     public String toString(){
         String str = "";
         str += "**************************************************";
-        str += year + make + model + "(" + modelColor + ")";
-        str += "\t BASE PRICE: \t\t\t\t " + basePrice;
-        str += "\t MILES: \t\t\t\t " + mileage;
-        str += "\t PACKAGES: ";
+        str += "\n " + " " + year + " " + make + " " + model + " (" + modelColor + ")";
+        str += "\n\t BASE PRICE: \t\t " + basePrice;
+        str += "\n\t MILES: \t\t\t " + mileage;
+        str += "\n\t PACKAGES: ";
 
         if (luxPackStat == true){
-            str += "\n - Luxury Package";
+            str += "\n\t - Luxury Package";
         }
         if (fourWhlDriveStat == true){
-            str += "\n - 4WD Package";
+            str += "\n\t - 4WD Package";
         }
         if (sportsPackStat == true){
-            str += "\n - Sport Package";
+            str += "\n\t - Sport Package";
         }
         if (luxPackStat == false && fourWhlDriveStat == false && sportsPackStat == false){
-            str += "\n - None";
+            str += "\n\t - None";
         }
 
-        str += "PRICE WITH UPGRADES: \t\t\t" + priceWithUpgrades;
-        str += "FINAL PRICE WITH TAX: \t\t\t" + grandTotal;
+        str += "\n\n\t PRICE WITH UPGRADES: \t\t\t" + calcPrice();
+        str += "\n\t FINAL PRICE WITH TAX: \t\t\t" + calcPrice();
+        str += "\n\t **************************************************";
 
         return str;
     }
    public double calcPrice(){
         grandTotal += basePrice;
+        priceWithUpgrades += basePrice;
         if (luxPackStat == true){
             grandTotal += basePrice * .20;
+            priceWithUpgrades += basePrice *.20;
        }
         if (fourWhlDriveStat == true){
             grandTotal += 3500;
+            priceWithUpgrades += 3500;
         }
         if (sportsPackStat == true){
             grandTotal += basePrice * .15;
             fuelEfficiency = fuelEfficiency * .80;
+            priceWithUpgrades += basePrice *.15;
+        }
+        if (priceWithUpgrades == grandTotal){
+            return priceWithUpgrades;
         }
         return grandTotal + (grandTotal * 0.122);
     }
