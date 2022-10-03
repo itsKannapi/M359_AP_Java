@@ -14,11 +14,11 @@ public class Chevy {
     private boolean sportsPackStat; // sports package status
     //Constants
     private String make = "Chevrolet";
-    private double taxRate = 12.2;
-    private double luxuryPackIncrease;
-    private double fourWDIncrease = 3500.0;
-    private double sportsPackIncrease;
-    private double fuelEfficiencyDeduct;
+    private double taxRate = .122;
+    private double luxuryPackIncrease = getBasePrice() * .20;;
+    private double fourWDIncrease = 3500;
+    private double sportsPackIncrease = getBasePrice() * .15;
+    private double fuelEfficiencyDeduct = fuelEfficiency * .80;
 
     // Full Constructor
 
@@ -67,53 +67,101 @@ public class Chevy {
             return false;
         }
     }
-
-    public String getMake() {
-        return make;
+    public boolean getSportsPackStat(){
+        return sportsPackStat;
+    }
+    public boolean getFourWhlDriveStat(){
+        return fourWhlDriveStat;
+    }
+    public boolean getLuxPackStat(){
+        return luxPackStat;
+    }
+    public int getYear() {
+        return year;
     }
 
-    public void setMake(String make) {
-        this.make = make;
+    public void setYear(int year) {
+        this.year = year;
     }
 
-    public double getTaxRate() {
-        return taxRate;
+    public int getMileage() {
+        return mileage;
     }
 
-    public void setTaxRate(double taxRate) {
-        this.taxRate = taxRate;
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
     }
 
-    public double getLuxuryPackIncrease() {
-        return luxuryPackIncrease;
+    public double getFuelEfficiency() {
+        return fuelEfficiency;
     }
 
-    public void setLuxuryPackIncrease(double luxuryPackIncrease) {
-        this.luxuryPackIncrease = luxuryPackIncrease;
+    public void setFuelEfficiency(double fuelEfficiency) {
+        this.fuelEfficiency = fuelEfficiency;
     }
 
-    public double getFourWDIncrease() {
-        return fourWDIncrease;
+    public int getBasePrice() {
+        return basePrice;
     }
 
-    public void setFourWDIncrease(double fourWDIncrease) {
-        this.fourWDIncrease = fourWDIncrease;
+    public void setBasePrice(int basePrice) {
+        this.basePrice = basePrice;
     }
 
-    public double getSportsPackIncrease() {
-        return sportsPackIncrease;
+    public String getModel() {
+        return model;
     }
 
-    public void setSportsPackIncrease(double sportsPackIncrease) {
-        this.sportsPackIncrease = sportsPackIncrease;
+    public void setModel(String model) {
+        this.model = model;
     }
 
-    public double getFuelEfficiencyDeduct() {
-        return fuelEfficiencyDeduct;
+    public String getModelColor() {
+        return modelColor;
     }
 
-    public void setFuelEfficiencyDeduct(double fuelEfficiencyDeduct) {
-        this.fuelEfficiencyDeduct = fuelEfficiencyDeduct;
+    public void setModelColor(String modelColor) {
+        this.modelColor = modelColor;
+    }
+
+    public double getPriceWithUpgrades() {
+        return priceWithUpgrades;
+    }
+
+    public void setPriceWithUpgrades(double priceWithUpgrades) {
+        this.priceWithUpgrades = priceWithUpgrades;
+    }
+
+    public double getGrandTotal() {
+        return grandTotal;
+    }
+
+    public void setGrandTotal(double grandTotal) {
+        this.grandTotal = grandTotal;
+    }
+
+    public boolean isLuxPackStat() {
+        return luxPackStat;
+    }
+
+    public void setLuxPackStat(boolean luxPackStat) {
+        this.luxPackStat = luxPackStat;
+    }
+
+    public boolean isFourWhlDriveStat() {
+        return fourWhlDriveStat;
+    }
+
+    public void setFourWhlDriveStat(boolean fourWhlDriveStat) {
+        this.fourWhlDriveStat = fourWhlDriveStat;
+    }
+
+    public boolean isSportsPackStat() {
+        return sportsPackStat;
+    }
+
+    public void setSportsPackStat(boolean sportsPackStat) {
+        this.sportsPackStat = sportsPackStat;
     }
 
     public String toString(){
@@ -122,46 +170,48 @@ public class Chevy {
         str += "\n " + " " + year + " " + make + " " + model + " (" + modelColor + ")";
         str += "\n\t BASE PRICE: \t\t " + basePrice;
         str += "\n\t MILES: \t\t\t " + mileage;
+        str += "\n\t FUEL EFFICIENCY: \t " + fuelEfficiency + " mpg";
         str += "\n\t PACKAGES: ";
 
-        if (luxPackStat == true){
+        if (isLuxPackStat() == true){
             str += "\n\t\t - Luxury Package";
+            setLuxPackStat(true);
         }
-        if (fourWhlDriveStat == true){
+        if (isFourWhlDriveStat() == true){
             str += "\n\t\t - 4WD Package";
+            setFourWhlDriveStat(true);
         }
-        if (sportsPackStat == true){
+        if (isSportsPackStat() == true){
             str += "\n\t\t - Sport Package";
+            setSportsPackStat(true);
         }
         if (luxPackStat == false && fourWhlDriveStat == false && sportsPackStat == false){
             str += "\n\t\t - None";
         }
 
-        str += "\n\n\t PRICE WITH UPGRADES: \t\t\t" + calcPrice();
-        str += "\n\t FINAL PRICE WITH TAX: \t\t\t" + calcPrice();
+        grandTotal = calcPrice() + (calcPrice() * taxRate);
+        setGrandTotal(grandTotal);
+        setPriceWithUpgrades(priceWithUpgrades);
+
+        str += "\n\n\t PRICE WITH UPGRADES: \t\t\t" + priceWithUpgrades;
+        str += "\n\t FINAL PRICE WITH TAX: \t\t\t" + grandTotal;
         str += "\n**************************************************";
 
         return str;
     }
    public double calcPrice(){
-        grandTotal += basePrice;
-        priceWithUpgrades += basePrice;
-        if (luxPackStat == true){
-            grandTotal += basePrice * .20;
-            priceWithUpgrades += basePrice *.20;
-       }
-        if (fourWhlDriveStat == true){
-            grandTotal += 3500;
+        priceWithUpgrades = getBasePrice();
+
+        if (luxPackStat) {
+            priceWithUpgrades += getBasePrice() * .20;
+        }
+        if (fourWhlDriveStat) {
             priceWithUpgrades += 3500;
         }
-        if (sportsPackStat == true){
-            grandTotal += basePrice * .15;
-            fuelEfficiency = fuelEfficiency * .80;
-            priceWithUpgrades += basePrice *.15;
+        if (sportsPackStat) {
+            priceWithUpgrades += getBasePrice() * .15;
+            fuelEfficiency = fuelEfficiencyDeduct;
         }
-        if (priceWithUpgrades == grandTotal){
-            return priceWithUpgrades;
-        }
-        return grandTotal + (grandTotal * 0.122);
+        return priceWithUpgrades;
     }
 }

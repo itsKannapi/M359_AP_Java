@@ -7,9 +7,11 @@ public class ChevyDriverStudent {
         Chevy traxLux = new Chevy();
 
         // Set traxBase mileage to 15
-
+        traxBase.setMileage(15);
         // Set traxLux mileage to 175 with both a luxury and 4WD package
-
+        traxLux.setMileage(175);
+        traxLux.setLuxPackStat(true);
+        traxLux.setFourWhlDriveStat(true);
         // Printouts
         System.out.println("*** VEHICLE PRINTOUTS ***");
         System.out.println(traxBase);
@@ -23,6 +25,8 @@ public class ChevyDriverStudent {
                 "Fire Red", true, false, false);
         Chevy corvetteSport = new Chevy(2020, 1500, 18.5, 58900, "Corvette (Sport)",
                 "Fire Red", true, false, true);
+        Chevy bluesilverado = new Chevy(1990, 15000, 16.5, 37850, "Silverado",
+                "Blue", true, true, false);
 
         // Display mileage comparison
         System.out.println("*** COMPARE BY MILEAGE ***");
@@ -31,30 +35,32 @@ public class ChevyDriverStudent {
 
         // *** COMPLETE THE FOLLOWING DECISION STATEMENTS ***
 
-    /*
-        if (_________________________________)
+
+        if (corvetteClassic.getMileage() <= corvetteSport.getMileage())
             System.out.println("Classic Corvette has less miles than Sport Corvette");
-        else if (___________________________________)
+        else if (corvetteClassic.getMileage() >= corvetteSport.getMileage())
             System.out.println("Sport Corvette has less miles than Classic Corvette");
         else
-            System.out.println("Tie, both have " + corvetteClassic.getMiles() + " miles");
-    */
+            System.out.println("Tie, both have " + corvetteClassic.getMileage() + " miles");
+
 
 
         // Display equality
 
-    /*
+
         System.out.println("\n*** CHECK EQUALITY ***");
         System.out.println("\tBase Trax vs. Luxury Trax");
         System.out.print("\tStatus:\t");
 
         // *** COMPLETE THE FOLLOWING DECISION STATEMENTS ***
-        if  if (_________________________________)
+        if (traxBase.equals(traxLux))
             System.out.println("Same car");
         else
             System.out.println("Not same car");
 
-     */
-
+        // Printing out all objects
+        System.out.println(corvetteClassic);
+        System.out.println(corvetteSport);
+        System.out.println(bluesilverado);
     }
 }
