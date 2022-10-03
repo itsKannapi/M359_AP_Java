@@ -13,12 +13,12 @@ public class Chevy {
     private boolean fourWhlDriveStat; // 4WD package status
     private boolean sportsPackStat; // sports package status
     //Constants
-    private String make = "Chevrolet";
-    private double taxRate = .122;
-    private double luxuryPackIncrease = getBasePrice() * .20;;
-    private double fourWDIncrease = 3500;
-    private double sportsPackIncrease = getBasePrice() * .15;
-    private double fuelEfficiencyDeduct = fuelEfficiency * .80;
+    private final String MAKE = "Chevrolet";
+    private final double TAX_RATE = .122;
+    private final double LUXURY_PACK_INCREASE = getBasePrice() * .20;;
+    private final double FOUR_WHL_DRIVE_INCREASE = 3500;
+    private final double SPORTS_PACK_INCREASE = getBasePrice() * .15;
+    private final double FUEL_EFFICIENCY_DEDUCT = fuelEfficiency * .80;
 
     // Full Constructor
 
@@ -167,7 +167,7 @@ public class Chevy {
     public String toString(){
         String str = "";
         str += "**************************************************";
-        str += "\n " + " " + year + " " + make + " " + model + " (" + modelColor + ")";
+        str += "\n " + " " + year + " " + MAKE + " " + model + " (" + modelColor + ")";
         str += "\n\t BASE PRICE: \t\t " + basePrice;
         str += "\n\t MILES: \t\t\t " + mileage;
         str += "\n\t FUEL EFFICIENCY: \t " + fuelEfficiency + " mpg";
@@ -189,7 +189,7 @@ public class Chevy {
             str += "\n\t\t - None";
         }
 
-        grandTotal = calcPrice() + (calcPrice() * taxRate);
+        grandTotal = calcPrice() + (calcPrice() * TAX_RATE);
         setGrandTotal(grandTotal);
         setPriceWithUpgrades(priceWithUpgrades);
 
@@ -210,7 +210,7 @@ public class Chevy {
         }
         if (sportsPackStat) {
             priceWithUpgrades += getBasePrice() * .15;
-            fuelEfficiency = fuelEfficiencyDeduct;
+            fuelEfficiency = FUEL_EFFICIENCY_DEDUCT;
         }
         return priceWithUpgrades;
     }
