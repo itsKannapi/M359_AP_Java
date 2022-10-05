@@ -7,17 +7,19 @@ public class FindAverage {
         Scanner input = new Scanner(System.in);
         int sum = 0;
         int count = 0;
-        // user will enter -999 to exit
-        if (input.nextInt() == -999) {
+        System.out.println("Enter an int: (-999 to quit)");
+        int value = input.nextInt();
+        while (value != -999) {
+            sum += value;
 
+            count++;
+            System.out.println("Enter an int: (-999 to quit)");
+            value = input.nextInt();
         }
-        // prompt the user for their value
-        // a while loop making sure they want to continue,
-        // add to the sum
-        sum += input.nextInt();
-        // increment the count
 
         // calculate the average
+        double avg = (double)sum/count;
         // print it all out
+        System.out.println("The average is: " + avg);
     }
 }
