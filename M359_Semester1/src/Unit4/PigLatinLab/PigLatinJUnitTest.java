@@ -98,5 +98,4 @@ public class PigLatinJUnitTest {
         assertEquals(expected, actual);
     }
 
-
 }
