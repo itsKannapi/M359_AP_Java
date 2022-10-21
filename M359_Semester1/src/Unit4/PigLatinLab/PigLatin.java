@@ -1,11 +1,12 @@
 package Unit4.PigLatinLab;
 
 public class PigLatin {
+    // expected phrase one to pig latin: Ethay ackblay atcay ateyay ayay edray appleyay
     public static String toPigLatin(String str){
-        String curString = str;
+        String curString = str.toLowerCase();
         String newStr = "";
         String tempStr = "";
-        str = str.toLowerCase();
+
         // index of
         // int instanceSpace = str.indexOf(" ");
         // when translated the first word, change the index of the former phrase to be translated the word of 0
@@ -13,12 +14,13 @@ public class PigLatin {
             // if there is a space
             if (checkForSpace(curString, k)){
                 // chop off the beginning of the string to the area with a space
-                tempStr = str.substring(0, k);
-                translateWordToPigLatin(tempStr);
-                newStr += tempStr;
+                tempStr = curString.substring(0, k);
+                newStr += translateWordToPigLatin(tempStr) + " ";
                 // cut off the word that was just turned into a pig latin
-                curString = curString.substring(k, curString.length() - 1);
+                curString = curString.substring(k + 1);
+                k = 0;
             }
+            tempStr = "";
         }
         return newStr;
     }
