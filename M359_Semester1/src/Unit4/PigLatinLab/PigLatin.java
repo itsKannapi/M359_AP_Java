@@ -2,14 +2,22 @@ package Unit4.PigLatinLab;
 
 public class PigLatin {
     public static String toPigLatin(String str){
+        String curString = str;
         String newStr = "";
+        String tempStr = "";
         str = str.toLowerCase();
         // index of
         // int instanceSpace = str.indexOf(" ");
         // when translated the first word, change the index of the former phrase to be translated the word of 0
-        for (int k = 0; k < str.length(); k++){
-            if (checkForSpace(str, k)){
-                
+        for (int k = 0; k < curString.length(); k++){
+            // if there is a space
+            if (checkForSpace(curString, k)){
+                // chop off the beginning of the string to the area with a space
+                tempStr = str.substring(0, k);
+                translateWordToPigLatin(tempStr);
+                newStr += tempStr;
+                // cut off the word that was just turned into a pig latin
+                curString = curString.substring(k, curString.length() - 1);
             }
         }
         return newStr;
@@ -18,8 +26,8 @@ public class PigLatin {
         String newStr = "";
         // check if the str contains a vowel aeiou
         if (checkForVowel(s, 0)){
-            for (int i = 0; i < s.length(); i++){
-                newStr += s.charAt(i);
+            for (int l = 0; l < s.length(); l++){
+                newStr += s.charAt(l);
             }
             newStr += "yay";
         }
