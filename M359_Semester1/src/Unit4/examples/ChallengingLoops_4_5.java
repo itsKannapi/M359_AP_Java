@@ -24,6 +24,10 @@ public class ChallengingLoops_4_5 {
         System.out.println("\n");
 
         everyOtherWordBackwards("Boy these loops are tricky!");
+
+        System.out.println("\n");
+
+        reverseRemove("FremdVikings");
     }
     public static void everyOtherLetterPyramid(String str) {
         String newStr = str;
@@ -61,6 +65,14 @@ public class ChallengingLoops_4_5 {
                 newStr = "";
             }
         }
+    }
+
+    public static void reverseRemove(String str){
+        String newStr = "";
+        for (int n = str.length(); n < 0; n -= 2){
+            newStr += str.charAt(n);
+        }
+        System.out.println(newStr);
     }
 
 }

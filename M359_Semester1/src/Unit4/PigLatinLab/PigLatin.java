@@ -1,11 +1,14 @@
 package Unit4.PigLatinLab;
 
+import java.util.Locale;
+
 public class PigLatin {
-    // expected phrase one to pig latin: Ethay ackblay atcay ateyay ayay edray appleyay
     public static String toPigLatin(String str){
         String curString = str.toLowerCase();
         String newStr = "";
         String tempStr = "";
+        String firstLetterNewString;
+        String restOfNewString;
 
         // index of
         // int instanceSpace = str.indexOf(" ");
@@ -22,7 +25,9 @@ public class PigLatin {
             }
             tempStr = "";
         }
-        return newStr;
+        firstLetterNewString = newStr.substring(0,1).toUpperCase();
+        restOfNewString = newStr.substring(1);
+        return firstLetterNewString + restOfNewString + translateWordToPigLatin(curString);
     }
     public static String translateWordToPigLatin(String s){
         String newStr = "";
