@@ -3,11 +3,15 @@ package Unit5.examples.HeroVillainExample;
 public class Power {
     private String nameOfPower = "";
     private int powerStrength;
-
     public Power(String nameOfPower, int powerStrength) {
         this.nameOfPower = nameOfPower;
         this.powerStrength = powerStrength;
     }
+    public String toString() {
+        return "The power is: " + nameOfPower + " with a strength of: " + powerStrength;
+    }
+
+
 
     public String getNameOfPower() {
         return nameOfPower;
