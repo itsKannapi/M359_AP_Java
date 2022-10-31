@@ -15,7 +15,7 @@ public class SuperHero {
         //here we create a new Power object with the passed name and strength
     }
     public void updateStrengthAfterBattle(double percent){
-        heroPower.setPowerStrength((int)percent * heroPower.getPowerStrength());
+        heroPower.setPowerStrength((int)(percent * heroPower.getPowerStrength()));
     }
     public String toString() {
         String str = "This Super Hero is named: " + heroName + "\n";
