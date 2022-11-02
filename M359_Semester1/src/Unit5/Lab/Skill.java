@@ -3,6 +3,7 @@ package Unit5.Lab;
 public class Skill {
     private int defensivePower;
     private int offensivePower;
+    private int overallStrength;
 
     //Combine defensivePower and offensivePower,
     // if combined number is > or < ___ number then overallStrength is = to ___ number.
@@ -20,7 +21,5 @@ public class Skill {
     public void setDefensivePower(int DPower){this.defensivePower = DPower;}
 
     public void setOffensivePower(int OPower){this.offensivePower = OPower;}
-
-
 
 }
