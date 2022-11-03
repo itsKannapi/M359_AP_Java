@@ -3,17 +3,14 @@ package Unit5.Lab;
 public class Skill {
     private int defensivePower;
     private int offensivePower;
-    private int overallStrength;
 
-    //Combine defensivePower and offensivePower,
-    // if combined number is > or < ___ number then overallStrength is = to ___ number.
-
-    //Constructor
+    // constructor for the skill class
     public Skill(int DPower, int OPower){
         this.defensivePower = DPower;
         this.offensivePower = OPower;
     }
 
+    // getter and setters for Skill class
     public int getDefensivePower(){ return defensivePower;}
 
     public int getOffensivePower(){ return offensivePower;}

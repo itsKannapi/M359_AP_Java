@@ -5,18 +5,25 @@ public class Team {
     private Skill teamSkill;
     private String location;
 
-    //constructor
+    // constructor for the team class
     public Team(String teamName, String location, int DPower, int OPower) {
         this.teamName = teamName;
         this.teamSkill = new Skill(DPower, OPower);
         this.location = location;
     }
     // toString program
+
+    /**
+     * This method takes the name of the hockey team from the class and prints it, then
+     * it also prints the location where the team is from
+     *
+     * @return returns the sentence containing team name and location
+     */
     public String toString(){
         String str = "The hockey team is called " + teamName + " and they are from the " + location;
         return str;
     }
-    //getters/setters
+    // getter and setters for Team class
     public String getTeamName() {
         return teamName;
     }
