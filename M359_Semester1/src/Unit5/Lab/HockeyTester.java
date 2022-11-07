@@ -3,9 +3,9 @@ package Unit5.Lab;
 public class HockeyTester {
     // skill range is from 0-100 (most pro teams 70-100)
     public static void main(String[] args) {
-        Team ChicagoBlackhawks = new Team("Chicago Blackhawks", "West", 50, 50);
+        Team ChicagoBlackhawks = new Team("Chicago Blackhawks", "West", 80, 85);
         System.out.println(ChicagoBlackhawks);
-        Team TampaBayLightning = new Team ("Tampa Bay Lightning", "East", 50, 50);
+        Team TampaBayLightning = new Team ("Tampa Bay Lightning", "East", 80, 90);
         System.out.println(TampaBayLightning);
 
         System.out.println();
@@ -17,6 +17,9 @@ public class HockeyTester {
 
         // simulates a playoff series
         games(ChicagoBlackhawks, TampaBayLightning, 7);
+
+        // prints the total amount of games in a "season"
+        System.out.println("There was a total of " + Team.getGamesInSeason() + " games in the season.");
     }
 
     /**
@@ -24,6 +27,7 @@ public class HockeyTester {
      * and create an overall power assessment of either team
      *
      * @param team team one's attributes
+     * @return returns the teams Overall Power
      */
     // Determines the overall power of a team
     public static double overallPower(Team team){
@@ -31,11 +35,9 @@ public class HockeyTester {
         int teamOPower = team.getTeamSkill().getOffensivePower(); // Offensive power variable
 
 
-        double teamOverallPower =  (((double)teamDPower + teamOPower) / 2);
         // Overall Power of team is equal to the defensive power and offensive power combined,
         // then divided by 2.
-
-        return teamOverallPower;
+        return (((double)teamDPower + teamOPower) / 2);
     }
 
     /**
@@ -46,8 +48,8 @@ public class HockeyTester {
      * @param team2 team two
      * @param numGames amount of games that will be played
      */
-    // To Do: add an if statement determining if one skill is greater than the other add a standings (W-L counter in simulated games)
     public static void games(Team team1, Team team2, int numGames){
+        Team.increaseGamesInSeason(numGames);
         final int numFinalGames = numGames;
         final double winPercentage = .70;
         int teamOneWinCounter = 0;

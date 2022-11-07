@@ -4,6 +4,7 @@ public class Team {
     private String teamName = "";
     private Skill teamSkill;
     private String location;
+    static private int gamesInSeason = 0;
 
     // constructor for the team class
     public Team(String teamName, String location, int DPower, int OPower) {
@@ -20,8 +21,7 @@ public class Team {
      * @return returns the sentence containing team name and location
      */
     public String toString(){
-        String str = "The hockey team is called " + teamName + " and they are from the " + location;
-        return str;
+        return "The hockey team is called " + teamName + " and they are from the " + location;
     }
     // getter and setters for Team class
     public String getTeamName() {
@@ -46,5 +46,13 @@ public class Team {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public static int getGamesInSeason() {
+        return gamesInSeason;
+    }
+
+    public static void increaseGamesInSeason(int gamesInSeason) {
+        Team.gamesInSeason += gamesInSeason;
     }
 }
