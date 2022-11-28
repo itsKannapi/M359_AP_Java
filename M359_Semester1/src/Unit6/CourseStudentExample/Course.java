@@ -50,6 +50,16 @@ public class Course {
     public String toString(){
         String str = "";
         str += "Per: " + period + "    ";
+        if (currentGrade != null){
+            str += currentGrade;
+        }
+        else{
+            str += "--";
+        }
+        if (teacherName != null){
+            str += teacherName;
+        }
+        return str;
         
     }
 }
