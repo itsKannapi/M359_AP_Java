@@ -33,7 +33,7 @@ public class Student {
         String str = "Student Name: " + name;
 
         for (int i = 0; i < 8; i++){
-            str += myClasses[i];
+            str += "\n" + myClasses[i];
         }
         return str;
     }

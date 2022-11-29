@@ -49,12 +49,18 @@ public class Course {
     }
     public String toString(){
         String str = "";
-        str += "Per: " + period + "    ";
+        str += "Per: " + period + "   ";
         if (currentGrade != null){
             str += currentGrade;
         }
         else{
             str += "--";
+        }
+        str += "\t\t" + subject;
+
+        int len = subject.length();
+        for (int i = len; i < 25; i++){
+            str += " ";
         }
         if (teacherName != null){
             str += teacherName;
