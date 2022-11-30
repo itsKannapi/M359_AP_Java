@@ -26,6 +26,30 @@ public class StudentTester {
         //Create a new file variable to open the file
         File oneCourse = new File("oneCourse.txt");
 
+        //Create a file and scanner variable
+        File oneSch = new File("oneSchedule.txt");
+        Scanner inSch = new Scanner(oneSch);
+        //Read in student name
+        String name = inSch.nextLine();
+        //Create a Course[] and instantiate it to be of size 8
+        Course[] allClasses = new Course[8];
+        //use a  for loop to read in data for a Course 8 times
+        for (int i = 0; i < allClasses.length; i++){
+            //Read in teacher name, Course, grade, period
+            String teacherName = inSch.nextLine();
+            String className = inSch.nextLine();
+            String grade = inSch.nextLine();
+            int per = inSch.nextInt();
+
+            //Create a Course var with this data
+            Course c = new Course(teacherName, className, grade, per);
+            //Save this course in the Course array
+            allClasses[i] = c;
+        }
+        //create a student object with his name and Course[]
+        
+        //print the student to see if it worked
+
         //Create a Scanner to read data from the file
         // Select the option to add the throws FileNotFoundException to the main header
         Scanner inF = new Scanner(oneCourse);
@@ -40,6 +64,6 @@ public class StudentTester {
 
         //Create a course var with this data
         Course c = new Course(teacherName, className, grade, per);
-        System.out.println(c);
+        System.out.println();
     }
 }
