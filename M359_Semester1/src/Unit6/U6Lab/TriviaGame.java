@@ -5,9 +5,21 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class TriviaGame {
-    Question[] questionsArray = new Question[12];
+    static Question[] questionsArray = new Question[12];
 
-    public void readTxtFile() throws FileNotFoundException {
+    public static void playGame() throws FileNotFoundException {
+        readTxtFile();
+        for (Question q: questionsArray){
+            if (q !=null){
+                System.out.println(q);
+            }
+        }
+    }
+//    public boolean checkAnswer(){
+//
+//    }
+
+    public static void readTxtFile() throws FileNotFoundException {
         File file = new File("questionsandMCProblems.txt");
         Scanner inF = new Scanner(file);
         //dummy read because of trivia game title
