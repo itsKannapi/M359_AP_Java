@@ -20,9 +20,16 @@ public class Question {
         this.answerD = answerD;
         this.correctAnswer = correctAnswer;
     }
-//    public String toString() {
-//        return;
-//    }
+    public String toString() {
+        String str = "";
+        str += question;
+        str += "\n A)\t" + answerA;
+        str += "\n B)\t" + answerB;
+        str += "\n C)\t" + answerC;
+        str += "\n D)\t" + answerD;
+
+        return str;
+   }
     public String getQuestion() {
         return question;
     }
