@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class TriviaDriver {
     private static boolean gameState = false;
     public static void main(String[] args) throws FileNotFoundException {
+        TriviaGame myGame = new TriviaGame(12);
         Scanner input = new Scanner(System.in);
         System.out.println("≻〉 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ ⋆Welcome to Apple Trivia!⋆ ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ 〈≺");
         System.out.println("What is your name?");
@@ -15,7 +16,7 @@ public class TriviaDriver {
         System.out.println();
 
         while (!gameState){
-            TriviaGame.playGame();
+            myGame.readTxtFile();
             gameState = true;
         }
     }
