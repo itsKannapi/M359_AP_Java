@@ -1,20 +1,28 @@
 package Unit6.U6Lab;
 
-import Unit6.CourseStudentExample.Student;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class TriviaGame {
-    public Question[] questionsArray;
+    public static Question[] questionsArray;
+    public static String[] correctAnswers = new String[12];
 
-//    public boolean checkAnswer(){
-//
-//    }
+    public static void getQuestion(int qNum){
+        System.out.println(questionsArray[qNum]);
+    }
+    public void checkAnswer(String a, int qNum){
+        if (a.equals(correctAnswers[qNum])){
+            System.out.println("The answer is correct");
+        }
+        else{
+            System.out.println("Incorrect! The answer was " + correctAnswers[qNum]);
+        }
+    }
 
     public TriviaGame(int num) {
-        this.questionsArray = new Question[num];
+        questionsArray = new Question[num];
     }
 
     public static void readTxtFile() throws FileNotFoundException {
@@ -37,6 +45,7 @@ public class TriviaGame {
 
                 Question q = new Question(questionLine, answerA, answerB, answerC, answerD, correctAnswer);
                 questionsArray[i] = q;
+                correctAnswers[i] = correctAnswer;
             }
         }
     }
