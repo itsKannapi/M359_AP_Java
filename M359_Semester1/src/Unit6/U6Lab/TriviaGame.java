@@ -6,10 +6,10 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class TriviaGame {
-    public static Question[] questionsArray;
-    public static String[] correctAnswers = new String[12];
+    public Question[] questionsArray;
+    public String[] correctAnswers = new String[12];
 
-    public static void getQuestion(int qNum){
+    public void getQuestion(int qNum){
         System.out.println(questionsArray[qNum]);
     }
     public void checkAnswer(String a, int qNum){
@@ -25,14 +25,13 @@ public class TriviaGame {
         questionsArray = new Question[num];
     }
 
-    public static void readTxtFile() throws FileNotFoundException {
+    public void readTxtFile() throws FileNotFoundException {
         File file = new File("questionsandMCProblems.txt");
         Scanner inF = new Scanner(file);
         //dummy read because of trivia game title
         if(inF.hasNextLine()){
             inF.nextLine();
         }
-        Question[] questionsArray = new Question[12];
         while(inF.hasNextLine()) {
             //use the for loop to read the file multiple times
             for (int i = 0; i < questionsArray.length; i++) {

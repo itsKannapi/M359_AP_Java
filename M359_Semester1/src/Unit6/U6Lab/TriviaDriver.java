@@ -4,14 +4,13 @@ package Unit6.U6Lab;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import static Unit6.U6Lab.TriviaGame.getQuestion;
 
 public class TriviaDriver {
     private static boolean gameState = false;
     public static int questionNumber = 0;
     public static void main(String[] args) throws FileNotFoundException {
-        TriviaGame.readTxtFile();
         TriviaGame myGame = new TriviaGame(12);
+        myGame.readTxtFile();
         Scanner input = new Scanner(System.in);
         System.out.println("≻〉 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ ⋆Welcome to Apple Trivia!⋆ ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ 〈≺");
         System.out.println("What is your name?");
@@ -20,7 +19,7 @@ public class TriviaDriver {
         System.out.println();
 
         while (!gameState){
-            getQuestion(questionNumber);
+            myGame.getQuestion(questionNumber);
             System.out.println();
             System.out.println("What is your answer?");
             String answer = input.nextLine();
@@ -33,7 +32,12 @@ public class TriviaDriver {
             else {
                 gameState = true;
             }
-            questionNumber++;
+            if(questionNumber == 11){
+                gameState = false;
+            }
+            else{
+                questionNumber++;
+            }
         }
     }
 }
