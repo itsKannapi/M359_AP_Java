@@ -20,6 +20,11 @@ public class Question {
         this.answerD = answerD;
         this.correctAnswer = correctAnswer;
     }
+
+    /**
+     * to string method to print questions
+     * @return formatted question with multiple choice answers
+     */
     public String toString() {
         String str = "";
         str += question;
