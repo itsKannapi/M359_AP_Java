@@ -32,20 +32,26 @@ public class NotesExamples {
 
         /** Part II:  Using loops to remove a value **/
         // Create two ArrayLists of Integer values called list1 and list2
-
+        ArrayList<Integer> list1 = new ArrayList<>();
+        ArrayList<Integer> list2 = new ArrayList<>();
 
         // Use a for loop to fill both list1 and list2 with values 1-20
-
+        for (int i = 1; i <=20; i++){
+            list1.add(i);
+            list2.add(i);
+        }
         // Print list1 and list2 to verify they have the correct values
-
+        System.out.println(list1);
+        System.out.println(list2);
 
         // Call removeEvensForward on list1
-
+        removeEvensForward(list1);
         // print list1
-
+        System.out.println(list1);
         // Call removeEvensBackward on list2
-
+        removeEvensForward(list2);
         // print list2
+        System.out.println(list2);
 
 
         // SO DOES THIS MEAN REMOVING ELEMENTS WORKS THE SAME REGARDLESS OF HOW YOU
@@ -53,9 +59,10 @@ public class NotesExamples {
         // TALK TO YOUR NEIGHBOR!!!!
 
         //Call removeEvensForward on vals and discuss what you see
-
+        removeEvensBackward(vals);
         // Did this method work as intended?  Why or why not?
-
+        // yes because it doesnt take in account for the fact that the size changing. since an arraylist is flexible,
+        // the 0 value in the index would be changed everytime we remove a value from the array
     }
 
     /**
@@ -83,7 +90,7 @@ public class NotesExamples {
     public static int countEvensForEach(ArrayList<Integer> nums) {
         int amount = 0;
         for (Integer num: nums){
-            if(nums.get(num) % 2 == 0){
+            if(num % 2 == 0){
                 amount++;
             }
         }
@@ -96,7 +103,11 @@ public class NotesExamples {
      * @param vals ArrayList to remove values from
      */
     public static void removeEvensForward(ArrayList<Integer> vals) {
-
+        for (int i = 0; i < vals.size(); i++){
+            if(vals.get(i) % 2 == 0){
+                vals.remove(i);
+            }
+        }
     }
     /**
      * This method will remove all even Integer values in the ArrayList
@@ -104,6 +115,10 @@ public class NotesExamples {
      * @param vals ArrayList to remove values from
      */
     public static void removeEvensBackward(ArrayList<Integer> vals) {
-
+        for (int i = vals.size(); i >= 0; i--){
+            if(vals.get(i) % 2 == 0){
+                vals.remove(i);
+            }
+        }
     }
 }
