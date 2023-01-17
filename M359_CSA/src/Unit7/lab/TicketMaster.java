@@ -1,5 +1,7 @@
 package Unit7.lab;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class TicketMaster {
@@ -12,8 +14,12 @@ public class TicketMaster {
     // to string that returns the entire arraylist
     public String toString(){
         String str = "Date" + "\t" + "Price" + "\t" + "Qty" + "\t" + "Performer" + "\n" + "City";
-        str += ""
-
+        str += "";
+        return str;
+    }
+    public void showTxtFile () throws FileNotFoundException {
+        File file = new File ("showData.txt");
+        Scanner in
     }
     // void method to show data
     /*
