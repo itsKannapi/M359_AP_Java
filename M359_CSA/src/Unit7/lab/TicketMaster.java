@@ -3,6 +3,7 @@ package Unit7.lab;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TicketMaster {
     private ArrayList<Show> allShows;
@@ -19,7 +20,7 @@ public class TicketMaster {
     }
     public void showTxtFile () throws FileNotFoundException {
         File file = new File ("showData.txt");
-        Scanner in
+        Scanner in = new Scanner(System.in);
     }
     // void method to show data
     /*
