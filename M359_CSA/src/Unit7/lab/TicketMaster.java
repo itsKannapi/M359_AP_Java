@@ -14,30 +14,36 @@ public class TicketMaster {
 
     // to string that returns the entire arraylist
     public String toString(){
-        String str = "Date" + "\t" + "Price" + "\t" + "Qty" + "\t" + "Performer" + "\n" + "City";
+        String str = "Date" + "\t" + "Price" + "\t" + "Qty" + "\t" + "Performer" + "\t" + "City";
         str += "";
         return str;
     }
-    public void showTxtFile () throws FileNotFoundException {
+    public void showTxtFile () {
         File file = new File ("showData.txt");
-        Scanner in = new Scanner(file);
+        Scanner in = null;
+        try {
+            in = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: Cannot find text file");
+        }
 
-        while(in.hasNextLine()){
+        while(in != null && in.hasNextLine()){
             String date = in.next();
             double price = in.nextDouble();
             int quantity = in.nextInt();
             String performer = in.next();
             String city;
             if (performer.contains(",")){
-                performer.replace(',',' ');
+                //performer.replace(',',' ');
                 city = " " + in.next();
             }
             else{
                 performer += in.next();
-                performer.replace(',',' ');
+                //performer.replace(',',' ');
                 city = in.next();
             }
-            if (!in.nextLine().equals("")){
+            String secondWord = "";
+            if (!in.next().equals("")){
                 city += in.next();
             }
 
