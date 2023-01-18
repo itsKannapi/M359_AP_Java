@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TicketMaster {
-    private ArrayList<Show> allShows;
+    private final ArrayList<Show> allShows;
     //constructor
     public TicketMaster(){
         allShows = new ArrayList<>();
@@ -20,7 +20,30 @@ public class TicketMaster {
     }
     public void showTxtFile () throws FileNotFoundException {
         File file = new File ("showData.txt");
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(file);
+
+        while(in.hasNextLine()){
+            String date = in.next();
+            double price = in.nextDouble();
+            int quantity = in.nextInt();
+            String performer = in.next();
+            String city;
+            if (performer.contains(",")){
+                performer.replace(',',' ');
+                city = " " + in.next();
+            }
+            else{
+                performer += in.next();
+                performer.replace(',',' ');
+                city = in.next();
+            }
+            if (!in.nextLine().equals("")){
+                city += in.next();
+            }
+
+            Show s = new Show(date, price, quantity, performer, city);
+            allShows.add(s);
+        }
     }
     // void method to show data
     /*
