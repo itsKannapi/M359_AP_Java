@@ -1,5 +1,6 @@
 package Unit7.examples;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -124,35 +125,58 @@ public class Notes_7_4_Examples {
 //    public static boolean isIncreasing(ArrayList<Integer> list) {
 //
 //    }
-//
-//    /**
-//     * Checks if any values within the ArrayList are repeated anywhere else
-//     * in the ArrayList
-//     * @param list
-//     * @return true if any values are repeated, false otherwise
-//     */
-//    public static boolean hasDuplicates(ArrayList<String> list) {
-//
-//    }
-//
-//    /**
-//     * Creates a new ArrayList of Strings that is equal to the original ArrayList
-//     * in reverse order.  Original ArrayList is unchanged.
-//     * @param list
-//     * @return new ArrayList of Strings in reverse order
-//     */
-//    public static ArrayList<String> revArrayList(ArrayList<String> list) {
-//
-//    }
-//
-//    /**
-//     * Shifts all values in list to the Left and the value at index 0 is moved
-//     * to index list.size() - 1.
-//     * @param list
-//     */
-//    public static void shiftLeft(ArrayList<String> list) {
-//
-//    }
-//
+
+    /**
+     * Checks if any values within the ArrayList are repeated anywhere else
+     * in the ArrayList
+     * @param list
+     * @return true if any values are repeated, false otherwise
+     */
+    public static boolean hasDuplicates(ArrayList<String> list) {
+        // use a nested for loop to check if each element is equal
+        // to all the element AFTER it.
+        // remember to use .equals() when checking for String equality
+
+        // outer loop is the value I am curring checking for duplicates
+
+        for (int i = 0; i < list.size() - 1; i++){
+            // inner loop is comparing every value after this value to check
+            // for equality
+            for (int k = i + 1; k < list.size(); k++){
+                if(list.get(i).equals(list.get(k))){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Creates a new ArrayList of Strings that is equal to the original ArrayList
+     * in reverse order.  Original ArrayList is unchanged.
+     * @param list
+     * @return new ArrayList of Strings in reverse order
+     */
+    public static ArrayList<String> revArrayList(ArrayList<String> list) {
+        //create and instantiate a new Arraylist
+        ArrayList<String> revList = new ArrayList<>();
+        // use a loop to fill it
+        for (int i = list.size() - 1; i >= 0; i--){
+            revList.add(list.get(i));
+        }
+        //return Arraylist
+        return revList;
+    }
+
+    /**
+     * Shifts all values in list to the Left and the value at index 0 is moved
+     * to index list.size() - 1.
+     * @param list
+     */
+    public static void shiftLeft(ArrayList<String> list) {
+        String rem = list.remove(0);
+        list.add(rem);
+    }
+
 
 }

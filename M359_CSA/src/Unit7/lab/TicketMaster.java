@@ -18,7 +18,7 @@ public class TicketMaster {
     }
     // to string that returns the entire arraylist
     public String toString(){
-        String str = "Date" + "\t" + "Price" + "\t" + "Qty" + "\t" + "Performer" + "\t" + "City";
+        String str = "Date" + "\t\t" + "Price" + "\t\t" + "Qty" + "\t\t" + "Performer" + "\t\t\t" + "City";
         str += "";
         return str;
     }
@@ -43,17 +43,11 @@ public class TicketMaster {
             double price = Double.parseDouble(newArrOfStr[1]);
             int quantity = Integer.parseInt(newArrOfStr[2]);
             String performer = newArrOfStr[3];
-            if (performer.contains(",")){
-                performer.replace(',',' ');
-                //city = " " + in.next();
+            if (newArrOfStr.length > 4){
+                performer += " " + newArrOfStr[4];
             }
-            else{
-                performer.replace(',',' ');
-                if (newArrOfStr.length > 4)
-                    performer += " " + newArrOfStr[4];
-                if (newArrOfStr.length > 5)
-                    performer += " " + newArrOfStr[5];
-                //city = in.next();
+            if (newArrOfStr.length > 5) {
+                performer += " " + newArrOfStr[5];
             }
 
             Show s = new Show(date, price, quantity, performer, city);

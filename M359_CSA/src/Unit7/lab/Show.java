@@ -17,8 +17,17 @@ public class Show {
     }
 
     //toString Method in a row format and columns
+    //loop of length of performer name and add spaces
     public String toString(){
-        String str = date + "\t" + price + "\t" + Quantity + "\t" + performer + "\t" + city;
+        String str = date + "\t";
+        str += price + "\t\t";
+        str += Quantity + "\t\t";
+        str += performer;
+        for (int i = performer.length(); i < 18; i++){
+            //subtract performer length from a certain number then spaces
+            str += " ";
+        }
+        str += city;
         return str;
     }
     //get/set methods
