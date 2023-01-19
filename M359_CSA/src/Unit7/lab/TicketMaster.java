@@ -6,12 +6,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TicketMaster {
-    private final ArrayList<Show> allShows;
+    private static ArrayList<Show> allShows;
     //constructor
     public TicketMaster(){
         allShows = new ArrayList<>();
     }
-
+    public static void getShows(){
+        for (Show s: allShows) {
+            System.out.println(s);
+        }
+    }
     // to string that returns the entire arraylist
     public String toString(){
         String str = "Date" + "\t" + "Price" + "\t" + "Qty" + "\t" + "Performer" + "\t" + "City";
@@ -28,27 +32,33 @@ public class TicketMaster {
         }
 
         while(in != null && in.hasNextLine()){
-            String date = in.next();
-            double price = in.nextDouble();
-            int quantity = in.nextInt();
-            String performer = in.next();
-            String city;
+            String inputLine = in.nextLine();
+            String[] arrOfStr = inputLine.split(",");
+
+            String newLine = arrOfStr[0];
+            String city = arrOfStr[1];
+
+            String[] newArrOfStr = newLine.split(" ");
+            String date = newArrOfStr[0];
+            double price = Double.parseDouble(newArrOfStr[1]);
+            int quantity = Integer.parseInt(newArrOfStr[2]);
+            String performer = newArrOfStr[3];
             if (performer.contains(",")){
-                //performer.replace(',',' ');
-                city = " " + in.next();
+                performer.replace(',',' ');
+                //city = " " + in.next();
             }
             else{
-                performer += in.next();
-                //performer.replace(',',' ');
-                city = in.next();
-            }
-            String secondWord = "";
-            if (!in.next().equals("")){
-                city += in.next();
+                performer.replace(',',' ');
+                if (newArrOfStr.length > 4)
+                    performer += " " + newArrOfStr[4];
+                if (newArrOfStr.length > 5)
+                    performer += " " + newArrOfStr[5];
+                //city = in.next();
             }
 
             Show s = new Show(date, price, quantity, performer, city);
             allShows.add(s);
+
         }
     }
     // void method to show data
