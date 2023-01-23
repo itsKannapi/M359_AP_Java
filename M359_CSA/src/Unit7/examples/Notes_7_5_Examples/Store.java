@@ -2,11 +2,14 @@ package Unit7.examples.Notes_7_5_Examples;
 
 // import ArrayList class
 
+import java.util.ArrayList;
+
 public class Store {
     // declare an instance variable of an ArrayList of type Item called myItems
-
+    private  Arraylist<Item> myItems;
     public Store() {
         // instantiate the ArrayList myItems
+        myItems = new ArrayList<>();
     }
 
     /**

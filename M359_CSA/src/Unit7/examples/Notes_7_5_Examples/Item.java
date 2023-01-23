@@ -15,18 +15,22 @@ public class Item {
      *  For two items to be equal they will have the same name and cost
      *  The quantity doesn't matter
      */
-//    public boolean equals(Item other) {
-//
-//    }
+    public static boolean equals(Item other) {
+        if (Item.equals(other)){
+            return true;
+        }
+        return false;
+    }
 
     /**
      * this method returns a String representation of a single Item
      * The String format is similar to: Ice Cream, $3.99, 10
      * Where 10 represents the quantity
      */
-//    public String toString() {
-//
-//    }
+    public String toString() {
+        String str = name + ", " + cost + ", " + quantity;
+        return str;
+    }
 
 
     // ALL GETTER AND SETTER METHODS FOR INSTANCE VARIABLES
