@@ -1,4 +1,4 @@
-package Unit7.NotesExamples.Notes_7_5;
+package Unit7.examples.Notes_7_5_Examples;
 
 // import ArrayList class
 
@@ -24,18 +24,18 @@ public class Store {
      * 			false 	if no new items were added
      */
 
-    public boolean updateStock(Item newItem) {
-
-    }
+//    public boolean updateStock(Item newItem) {
+//
+//    }
 
     /**
      * This method returns a String representation of every Item in the ArrayList
      * The toString of the Item class should be called here as a helper method.
      */
 
-    public String toString() {
-
-
-    }
+//    public String toString() {
+//
+//
+//    }
 
 }

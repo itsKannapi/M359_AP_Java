@@ -1,4 +1,4 @@
-package Unit7.NotesExamples.Notes_7_5;
+package Unit7.examples.Notes_7_5_Examples;
 
 public class Item {
     private String name;
@@ -15,18 +15,18 @@ public class Item {
      *  For two items to be equal they will have the same name and cost
      *  The quantity doesn't matter
      */
-    public boolean equals(Item other) {
-
-    }
+//    public boolean equals(Item other) {
+//
+//    }
 
     /**
      * this method returns a String representation of a single Item
      * The String format is similar to: Ice Cream, $3.99, 10
      * Where 10 represents the quantity
      */
-    public String toString() {
-
-    }
+//    public String toString() {
+//
+//    }
 
 
     // ALL GETTER AND SETTER METHODS FOR INSTANCE VARIABLES
