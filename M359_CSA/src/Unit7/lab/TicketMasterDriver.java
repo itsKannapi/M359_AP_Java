@@ -5,12 +5,14 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class TicketMasterDriver {
+    //todo: instead of numbers it should be constants
+    //private static final int QUIT = 6;
     private static boolean continuation = true;
+    static TicketMaster shows = new TicketMaster();
     // provide a menu of choices and users select a choice to sort
     // a-z, z-a, sort by ticket price low-high/high-low,
     // search by city, or quit
     public static void main(String[] args) throws FileNotFoundException {
-        TicketMaster shows = new TicketMaster();
         shows.showTxtFile();
         Scanner Input = new Scanner(System.in);
         int choice = 0;
@@ -44,6 +46,8 @@ public class TicketMasterDriver {
                 if(num >= min && num <= max){
                     if (num == 1){
                         System.out.println("You've selected option 1");
+                        TicketMaster.getShows();
+                        //TicketMaster.searchByCity();
                     }
                     if (num == 2){
                         System.out.println("You've selected option 2");

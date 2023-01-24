@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class TicketMaster {
     private static ArrayList<Show> allShows;
+    private static ArrayList<Show> showsInstances = new ArrayList<>();
     //constructor
     public TicketMaster(){
         allShows = new ArrayList<>();
@@ -64,10 +65,20 @@ public class TicketMaster {
     inF.nextInt() will read for the next int
     inF.nextDouble() will read for the next double
      */
-    // when reading the file, make a method to find the coma in a line and then split the string
-
     // method to search by city and all shows in that city (arraylist of shows)
+    public static void searchByCity (){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter a city to search shows in");
+        String input = " " + in.nextLine();
 
+        for (Show s: allShows){
+            String city = s.getCity();
+            if (city.equals(input)){
+                showsInstances.add(s);
+            }
+        }
+        System.out.println(showsInstances);
+    }
     // void method to sort by performer (selection sort)
 
     // void method to sort by price (insertion sort)
