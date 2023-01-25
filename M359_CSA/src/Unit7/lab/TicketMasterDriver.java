@@ -5,8 +5,12 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class TicketMasterDriver {
-    //todo: instead of numbers it should be constants
-    //private static final int QUIT = 6;
+    private static final int SEARCH = 1;
+    private static final int AtoZ = 2;
+    private static final int ZtoA = 3;
+    private static final int LOW_TO_HIGH_PRICE = 4;
+    private static final int HIGH_TO_LOW_PRICE = 5;
+    private static final int QUIT = 6;
     private static boolean continuation = true;
     static TicketMaster shows = new TicketMaster();
     // provide a menu of choices and users select a choice to sort
@@ -32,9 +36,6 @@ public class TicketMasterDriver {
 
             choice = getNextIntVal(Input, 1, 6);
         }
-        //Scanner input = new Scanner(System.in);
-//      System.out.println(shows);
-//      TicketMaster.getShows();
     }
     public static int getNextIntVal(Scanner in, int min, int max){
         boolean keepGoing = true;
@@ -44,24 +45,22 @@ public class TicketMasterDriver {
                 System.out.println("Enter a Value between 1 and 6");
                 num = in.nextInt();
                 if(num >= min && num <= max){
-                    if (num == 1){
-                        System.out.println("You've selected option 1");
-                        TicketMaster.getShows();
-                        //TicketMaster.searchByCity();
+                    if (num == SEARCH){
+                        TicketMaster.searchByCity();
                     }
-                    if (num == 2){
+                    if (num == AtoZ){
                         System.out.println("You've selected option 2");
                     }
-                    if (num == 3){
+                    if (num == ZtoA){
                         System.out.println("You've selected option 3");
                     }
-                    if (num == 4){
+                    if (num == LOW_TO_HIGH_PRICE){
                         System.out.println("You've selected option 4");
                     }
-                    if (num == 5){
+                    if (num == HIGH_TO_LOW_PRICE){
                         System.out.println("You've selected option 5");
                     }
-                    if (num == 6){
+                    if (num == QUIT){
                         continuation = false;
                         keepGoing = false;
                     }

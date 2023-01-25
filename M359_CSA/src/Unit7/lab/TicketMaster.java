@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class TicketMaster {
     private static ArrayList<Show> allShows;
-    private static ArrayList<Show> showsInstances = new ArrayList<>();
     //constructor
     public TicketMaster(){
         allShows = new ArrayList<>();
@@ -67,17 +66,20 @@ public class TicketMaster {
      */
     // method to search by city and all shows in that city (arraylist of shows)
     public static void searchByCity (){
+        ArrayList<Show> showsInstances = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         System.out.println("Enter a city to search shows in");
         String input = " " + in.nextLine();
 
-        for (Show s: allShows){
-            String city = s.getCity();
-            if (city.equals(input)){
-                showsInstances.add(s);
+        for (Show a: allShows){
+            String city = a.getCity();
+            if (city.equalsIgnoreCase(input)){
+                showsInstances.add(a);
             }
         }
-        System.out.println(showsInstances);
+        for (Show s: showsInstances) {
+            System.out.println(s);
+        }
     }
     // void method to sort by performer (selection sort)
 
