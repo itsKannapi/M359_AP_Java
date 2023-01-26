@@ -2,6 +2,7 @@ package Unit7.lab;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -81,6 +82,20 @@ public class TicketMaster {
             System.out.println(s);
         }
     }
+    // void method (a-z)
+    // use a compare to method (ASCII)
+    public static void searchByAtoZ(){
+        ArrayList<Show> showsInstances = new ArrayList<>();
+        for (int i = 0; i < allShows.size(); i++){
+            String dateOne = allShows.get(i).getDate();
+            String dateTwo = allShows.get(i + 1).getDate();
+
+            int result = dateOne.compareTo(dateTwo);
+            
+
+        }
+    }
+
     // void method to sort by performer (selection sort)
 
     // void method to sort by price (insertion sort)
