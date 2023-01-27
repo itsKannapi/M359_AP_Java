@@ -1,6 +1,5 @@
 package Unit7.lab;
 
-import javax.crypto.spec.PSource;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -12,11 +11,12 @@ public class TicketMasterDriver {
     private static final int HIGH_TO_LOW_PRICE = 5;
     private static final int QUIT = 6;
     private static boolean continuation = true;
-    static TicketMaster shows = new TicketMaster();
+
     // provide a menu of choices and users select a choice to sort
     // a-z, z-a, sort by ticket price low-high/high-low,
     // search by city, or quit
     public static void main(String[] args) throws FileNotFoundException {
+        TicketMaster shows = new TicketMaster();
         shows.showTxtFile();
         Scanner Input = new Scanner(System.in);
         int choice = 0;
@@ -35,6 +35,28 @@ public class TicketMasterDriver {
             System.out.println();
 
             choice = getNextIntVal(Input, 1, 6);
+            if (choice == SEARCH){
+                shows.searchByCity();
+            }
+            if (choice == AtoZ){
+                System.out.println("You've selected option 2");
+                shows.searchByAtoZ();
+            }
+            if (choice == ZtoA){
+                System.out.println("You've selected option 3");
+                //TicketMaster.searchByZtoA();
+            }
+            if (choice == LOW_TO_HIGH_PRICE){
+                System.out.println("You've selected option 4");
+                //TicketMaster.sortLowToHigh();
+            }
+            if (choice == HIGH_TO_LOW_PRICE){
+                System.out.println("You've selected option 5");
+                //TicketMaster.sortHighToLow();
+            }
+            if (choice == QUIT){
+                continuation = false;
+            }
         }
     }
     public static int getNextIntVal(Scanner in, int min, int max){
@@ -44,36 +66,19 @@ public class TicketMasterDriver {
             try {
                 System.out.println("Enter a Value between 1 and 6");
                 num = in.nextInt();
-                if(num >= min && num <= max){
-                    if (num == SEARCH){
-                        TicketMaster.searchByCity();
-                    }
-                    if (num == AtoZ){
-                        System.out.println("You've selected option 2");
-                    }
-                    if (num == ZtoA){
-                        System.out.println("You've selected option 3");
-                    }
-                    if (num == LOW_TO_HIGH_PRICE){
-                        System.out.println("You've selected option 4");
-                    }
-                    if (num == HIGH_TO_LOW_PRICE){
-                        System.out.println("You've selected option 5");
-                    }
-                    if (num == QUIT){
-                        continuation = false;
-                        keepGoing = false;
-                    }
-                }
-                else{
+                if (num >= min && num <= max) {
+                    keepGoing = false;
+                    return num;
+                } else {
                     System.out.println("Error: That is not a valid integer!");
                 }
+
             }
             catch (Exception e){
                 System.out.println("Error: Invalid Input, please enter an int");
                 in.nextLine();
             }
         }
-        return num;
+        return -1;
     }
 }

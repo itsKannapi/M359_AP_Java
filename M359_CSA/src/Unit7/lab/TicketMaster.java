@@ -2,11 +2,11 @@ package Unit7.lab;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TicketMaster {
+    // todo: for monday: linear search, A-Z & Z-A
     private static ArrayList<Show> allShows;
     //constructor
     public TicketMaster(){
@@ -66,7 +66,7 @@ public class TicketMaster {
     inF.nextDouble() will read for the next double
      */
     // method to search by city and all shows in that city (arraylist of shows)
-    public static void searchByCity (){
+    public void searchByCity (){
         ArrayList<Show> showsInstances = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         System.out.println("Enter a city to search shows in");
@@ -84,21 +84,23 @@ public class TicketMaster {
     }
     // void method (a-z)
     // use a compare to method (ASCII)
-    public static void searchByAtoZ(){
-        ArrayList<Show> showsInstances = new ArrayList<>();
-        for (int i = 0; i < allShows.size(); i++){
-            String dateOne = allShows.get(i).getDate();
-            String dateTwo = allShows.get(i + 1).getDate();
-
-            int result = dateOne.compareTo(dateTwo);
+    public void searchByAtoZ(){
+        for (int i = 0; i < allShows.size(); i++) {
             
-
         }
+
     }
 
-    // void method to sort by performer (selection sort)
-
-    // void method to sort by price (insertion sort)
-
+//    // void method to sort by performer (selection sort)
+//    public static void searchByZtoA(){
+//
+//    }
+//    // void method to sort by price (insertion sort)
+//    public static void sortLowToHigh(){
+//
+//    }
+//    public static void sortHighToLow(){
+//
+//    }
 
 }

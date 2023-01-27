@@ -28,7 +28,7 @@ public class Selection_Sort_Notes {
             for (int j = i + 1; j < myNums.size(); j++){
                 // we are now checking the remaining values to see if they are smaller
                 // than the value located at index min
-                if(myNums.get(j) < myNums.get(j)){
+                if(myNums.get(j) < myNums.get(min)){
                     min = j;
                 }
             }
