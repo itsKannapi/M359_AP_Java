@@ -6,13 +6,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TicketMaster {
-    // todo: for monday: linear search, A-Z & Z-A
-    private static ArrayList<Show> allShows;
+    private final ArrayList<Show> allShows;
     //constructor
     public TicketMaster(){
         allShows = new ArrayList<>();
     }
-    public static void getShows(){
+    public void getShows(){
         for (Show s: allShows) {
             System.out.println(s);
         }
@@ -85,16 +84,45 @@ public class TicketMaster {
     // void method (a-z)
     // use a compare to method (ASCII)
     public void searchByAtoZ(){
-        for (int i = 0; i < allShows.size(); i++) {
-            
-        }
-
+        for (int i = 0; i < allShows.size() - 1; i++){
+            // start assuming i is the location of the smallest value
+            int min = i; // this is the current position I am sorting
+            for (int j = i + 1; j < allShows.size(); j++){
+                // we are now checking the remaining values to see if they are smaller
+                // than the value located at index min
+                if(allShows.get(j).getPerformer().compareTo(allShows.get(min).getPerformer()) < 0){
+                    min = j;
+                }
+            }
+            // I now know that min has the index of the smallest value
+            // swap the values from index i and index min
+            Show temp = allShows.get(min);
+            allShows.set(min, allShows.get(i));
+            allShows.set(i, temp);
+            }
+        getShows();
     }
 
-//    // void method to sort by performer (selection sort)
-//    public static void searchByZtoA(){
-//
-//    }
+    // void method to sort by performer (selection sort)
+    public void searchByZtoA(){
+        for (int i = 0; i < allShows.size() - 1; i++){
+            // start assuming i is the location of the smallest value
+            int min = i; // this is the current position I am sorting
+            for (int j = i + 1; j < allShows.size(); j++){
+                // we are now checking the remaining values to see if they are smaller
+                // than the value located at index min
+                if(allShows.get(j).getPerformer().compareTo(allShows.get(min).getPerformer()) > 0){
+                    min = j;
+                }
+            }
+            // I now know that min has the index of the smallest value
+            // swap the values from index i and index min
+            Show temp = allShows.get(min);
+            allShows.set(min, allShows.get(i));
+            allShows.set(i, temp);
+        }
+        getShows();
+    }
 //    // void method to sort by price (insertion sort)
 //    public static void sortLowToHigh(){
 //
@@ -102,5 +130,5 @@ public class TicketMaster {
 //    public static void sortHighToLow(){
 //
 //    }
-
 }
+

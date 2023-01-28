@@ -44,7 +44,7 @@ public class TicketMasterDriver {
             }
             if (choice == ZtoA){
                 System.out.println("You've selected option 3");
-                //TicketMaster.searchByZtoA();
+                shows.searchByZtoA();
             }
             if (choice == LOW_TO_HIGH_PRICE){
                 System.out.println("You've selected option 4");
