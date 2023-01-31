@@ -48,7 +48,7 @@ public class TicketMasterDriver {
             }
             if (choice == LOW_TO_HIGH_PRICE){
                 System.out.println("You've selected option 4");
-                //TicketMaster.sortLowToHigh();
+                shows.sortLowToHigh();
             }
             if (choice == HIGH_TO_LOW_PRICE){
                 System.out.println("You've selected option 5");

@@ -123,11 +123,29 @@ public class TicketMaster {
         }
         getShows();
     }
-//    // void method to sort by price (insertion sort)
-//    public static void sortLowToHigh(){
-//
-//    }
-//    public static void sortHighToLow(){
+    // void method to sort by price (insertion sort)
+    public void sortLowToHigh(){
+        for (int i = 1; i < allShows.size(); i++){
+            double valueToInsert = allShows.get(i).getPrice();
+            int position = i;
+
+            while(position > 0 && allShows.get(position - 1).getPrice() > valueToInsert){
+                //shift the value at position - 1 over to position
+                allShows.set(position, allShows.get(position - 1));
+                //decrease position so I can continue checking values
+                position--;
+            }
+
+            //at this point, I have either checked all values and I belong at position
+            //0 (so first check of whule loop failed) OR i am larger than the next element,
+            // so I found where I belong, at position
+
+            // now, you set the value at index positon with the value we saved in valueToInsert
+            allShows.set(position, allShows.get(position));
+        }
+        getShows();
+    }
+//    public void sortHighToLow(){
 //
 //    }
 }
