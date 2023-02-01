@@ -1,4 +1,4 @@
-package Unit7.examples.Notes_7_5_Examples;
+package Unit7.examples;
 
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ public class Insertion_Sort_Notes {
             }
 
             //at this point, I have either checked all values and I belong at position
-            //0 (so first check of whule loop failed) OR i am larger than the next element,
+            //0 (so first check of while loop failed) OR i am larger than the next element,
             // so I found where I belong, at position
 
             // now, you set the value at index positon with the value we saved in valueToInsert

@@ -126,10 +126,10 @@ public class TicketMaster {
     // void method to sort by price (insertion sort)
     public void sortLowToHigh(){
         for (int i = 1; i < allShows.size(); i++){
-            double valueToInsert = allShows.get(i).getPrice();
+            Show valueToInsert = allShows.get(i);
             int position = i;
 
-            while(position > 0 && allShows.get(position - 1).getPrice() > valueToInsert){
+            while(position > 0 && allShows.get(position - 1).getPrice() > allShows.get(position).getPrice()){
                 //shift the value at position - 1 over to position
                 allShows.set(position, allShows.get(position - 1));
                 //decrease position so I can continue checking values
@@ -141,7 +141,7 @@ public class TicketMaster {
             // so I found where I belong, at position
 
             // now, you set the value at index positon with the value we saved in valueToInsert
-            allShows.set(position, allShows.get(position));
+            allShows.set(position, valueToInsert);
         }
         getShows();
     }
