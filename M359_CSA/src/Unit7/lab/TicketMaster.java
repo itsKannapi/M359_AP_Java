@@ -80,6 +80,10 @@ public class TicketMaster {
         for (Show s: showsInstances) {
             System.out.println(s);
         }
+
+        if(showsInstances.size() < 0){
+            System.out.println("Sorry, there are no shows available in that city!");
+        }
     }
     // void method (a-z)
     // use a compare to method (ASCII)
@@ -129,7 +133,7 @@ public class TicketMaster {
             Show valueToInsert = allShows.get(i);
             int position = i;
 
-            while(position > 0 && allShows.get(position - 1).getPrice() > allShows.get(position).getPrice()){
+            while(position > 0 && allShows.get(position - 1).getPrice() > valueToInsert.getPrice()){
                 //shift the value at position - 1 over to position
                 allShows.set(position, allShows.get(position - 1));
                 //decrease position so I can continue checking values
@@ -145,8 +149,26 @@ public class TicketMaster {
         }
         getShows();
     }
-//    public void sortHighToLow(){
-//
-//    }
+    public void sortHighToLow(){
+        for (int i = 1; i < allShows.size(); i++){
+            Show valueToInsert = allShows.get(i);
+            int position = i;
+
+            while(position > 0 && allShows.get(position - 1).getPrice() < valueToInsert.getPrice()){
+                //shift the value at position - 1 over to position
+                allShows.set(position, allShows.get(position - 1));
+                //decrease position so I can continue checking values
+                position--;
+            }
+
+            //at this point, I have either checked all values and I belong at position
+            //0 (so first check of whule loop failed) OR i am larger than the next element,
+            // so I found where I belong, at position
+
+            // now, you set the value at index positon with the value we saved in valueToInsert
+            allShows.set(position, valueToInsert);
+        }
+        getShows();
+    }
 }
 

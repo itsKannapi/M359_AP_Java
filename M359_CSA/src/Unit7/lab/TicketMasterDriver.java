@@ -37,22 +37,27 @@ public class TicketMasterDriver {
             choice = getNextIntVal(Input, 1, 6);
             if (choice == SEARCH){
                 shows.searchByCity();
+                System.out.println();
             }
             if (choice == AtoZ){
                 System.out.println("You've selected option 2");
                 shows.searchByAtoZ();
+                System.out.println();
             }
             if (choice == ZtoA){
                 System.out.println("You've selected option 3");
                 shows.searchByZtoA();
+                System.out.println();
             }
             if (choice == LOW_TO_HIGH_PRICE){
                 System.out.println("You've selected option 4");
                 shows.sortLowToHigh();
+                System.out.println();
             }
             if (choice == HIGH_TO_LOW_PRICE){
                 System.out.println("You've selected option 5");
-                //TicketMaster.sortHighToLow();
+                shows.sortHighToLow();
+                System.out.println();
             }
             if (choice == QUIT){
                 continuation = false;
@@ -71,11 +76,13 @@ public class TicketMasterDriver {
                     return num;
                 } else {
                     System.out.println("Error: That is not a valid integer!");
+                    System.out.println();
                 }
 
             }
             catch (Exception e){
                 System.out.println("Error: Invalid Input, please enter an int");
+                System.out.println();
                 in.nextLine();
             }
         }
