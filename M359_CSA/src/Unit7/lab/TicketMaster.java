@@ -11,17 +11,33 @@ public class TicketMaster {
     public TicketMaster(){
         allShows = new ArrayList<>();
     }
+
+    /**
+     * this method prints out all the shows in an organized manner
+     */
     public void getShows(){
+        System.out.println("Date" + "\t\t" + "Price" + "\t\t" + "Qty" + "\t\t" + "Performer" + "\t\t\t" + "City");
+        System.out.println("-------------------------------------------------------------");
         for (Show s: allShows) {
             System.out.println(s);
         }
     }
-    // to string that returns the entire arraylist
+
+    /**
+     * this method prints out an organized row of the performer's information
+     * @return a row of shows that shows how information is organized
+     */
     public String toString(){
         String str = "Date" + "\t\t" + "Price" + "\t\t" + "Qty" + "\t\t" + "Performer" + "\t\t\t" + "City";
         str += "";
         return str;
     }
+
+    /**
+     * this method reads the text file, if it detects the fact that the file cannot be found,
+     * an error message is displayed. Otherwise, it reads the entire line or text and creates
+     * an object based on the line
+     */
     public void showTxtFile () {
         File file = new File ("showData.txt");
         Scanner in = null;
@@ -55,22 +71,20 @@ public class TicketMaster {
 
         }
     }
-    // void method to show data
-    /*
-    Scanner is called inF
-    inF.nextLine() will read the entire rest of the line AND the EOL char
-    inF.next() will read the text or num until the next space and return it
-               as a string, this will NOT read the EOL char
-    inF.nextInt() will read for the next int
-    inF.nextDouble() will read for the next double
+
+    /**
+     * this method gets the shows from allShows and displays them based on the input
+     *  of what city user provides
      */
-    // method to search by city and all shows in that city (arraylist of shows)
     public void searchByCity (){
         ArrayList<Show> showsInstances = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         System.out.println("Enter a city to search shows in");
         String input = " " + in.nextLine();
 
+        System.out.println("Shows Sorted By City");
+        System.out.println("Date" + "\t\t" + "Price" + "\t\t" + "Qty" + "\t\t" + "Performer" + "\t\t\t" + "City");
+        System.out.println("-------------------------------------------------------------");
         for (Show a: allShows){
             String city = a.getCity();
             if (city.equalsIgnoreCase(input)){
@@ -81,12 +95,14 @@ public class TicketMaster {
             System.out.println(s);
         }
 
-        if(showsInstances.size() < 0){
+        if(showsInstances.size() == 0){
             System.out.println("Sorry, there are no shows available in that city!");
         }
     }
-    // void method (a-z)
-    // use a compare to method (ASCII)
+    /**
+     * this method gets the shows from allShows and displayed them in order
+     * (a-z) alphabetically based on the performer's name
+     */
     public void searchByAtoZ(){
         for (int i = 0; i < allShows.size() - 1; i++){
             // start assuming i is the location of the smallest value
@@ -104,10 +120,13 @@ public class TicketMaster {
             allShows.set(min, allShows.get(i));
             allShows.set(i, temp);
             }
+        System.out.println("Shows sorted by A-Z");
         getShows();
     }
-
-    // void method to sort by performer (selection sort)
+    /**
+     * this method gets the shows from allShows and displayed them in order
+     * (z-a) alphabetically based on the performer's name
+     */
     public void searchByZtoA(){
         for (int i = 0; i < allShows.size() - 1; i++){
             // start assuming i is the location of the smallest value
@@ -125,9 +144,13 @@ public class TicketMaster {
             allShows.set(min, allShows.get(i));
             allShows.set(i, temp);
         }
+        System.out.println("Shows sorted from Z-A");
         getShows();
     }
-    // void method to sort by price (insertion sort)
+    /**
+     * this method gets the shows from allShows and displayed the in order
+     * based on the price of the tickets from lowest to highest
+     */
     public void sortLowToHigh(){
         for (int i = 1; i < allShows.size(); i++){
             Show valueToInsert = allShows.get(i);
@@ -147,8 +170,13 @@ public class TicketMaster {
             // now, you set the value at index positon with the value we saved in valueToInsert
             allShows.set(position, valueToInsert);
         }
+        System.out.println("Shows sorted from low to high in Ticket price");
         getShows();
     }
+    /**
+     * this method gets the shows from allShows and displayed the in order
+     * based on the price of the tickets from highest to lowest
+     */
     public void sortHighToLow(){
         for (int i = 1; i < allShows.size(); i++){
             Show valueToInsert = allShows.get(i);
@@ -168,6 +196,7 @@ public class TicketMaster {
             // now, you set the value at index positon with the value we saved in valueToInsert
             allShows.set(position, valueToInsert);
         }
+        System.out.println("Shows sorted from high to low in Ticket price");
         getShows();
     }
 }

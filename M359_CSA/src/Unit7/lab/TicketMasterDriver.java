@@ -18,74 +18,93 @@ public class TicketMasterDriver {
     public static void main(String[] args) throws FileNotFoundException {
         TicketMaster shows = new TicketMaster();
         shows.showTxtFile();
-        Scanner Input = new Scanner(System.in);
+        //Scanner Input = new Scanner(System.in);
         int choice = 0;
 
-        System.out.println("          ****  Welcome to Ticket Master Kiosk  ****          ");
+        System.out.println("                         ****  Welcome to Ticket Master Kiosk  ****                      ");
         System.out.println("You may search out shows by city as well as sort the shows by performer and ticket price.");
-        System.out.println("Simply select the correct option corresponding with your choice");
+        System.out.println("\t\t\tSimply select the correct option corresponding with your choice");
+        System.out.println();
 
+        runProgram(choice, shows);
+    }
+
+    /**
+     * this method runs the entire program by asking the user what tickets are
+     * available to the user based on the options provided
+     * @param choice the int value the user provides in the console
+     * @param shows the shows from the text file
+     */
+    public static void runProgram(int choice, TicketMaster shows) {
         while (continuation) {
             System.out.println("1. Search by City");
             System.out.println("2. Sort by Performer (A-Z)");
             System.out.println("3. Sort by Performer (Z-A)");
             System.out.println("4. Sort by Price (low-high)");
-            System.out.println("5. Sort by Price (high-low");
+            System.out.println("5. Sort by Price (high-low)");
             System.out.println("6. Quit");
             System.out.println();
 
+            Scanner Input = new Scanner(System.in);
             choice = getNextIntVal(Input, 1, 6);
-            if (choice == SEARCH){
+            if (choice == SEARCH) {
                 shows.searchByCity();
                 System.out.println();
             }
-            if (choice == AtoZ){
+            if (choice == AtoZ) {
                 System.out.println("You've selected option 2");
                 shows.searchByAtoZ();
                 System.out.println();
             }
-            if (choice == ZtoA){
+            if (choice == ZtoA) {
                 System.out.println("You've selected option 3");
                 shows.searchByZtoA();
                 System.out.println();
             }
-            if (choice == LOW_TO_HIGH_PRICE){
+            if (choice == LOW_TO_HIGH_PRICE) {
                 System.out.println("You've selected option 4");
                 shows.sortLowToHigh();
                 System.out.println();
             }
-            if (choice == HIGH_TO_LOW_PRICE){
+            if (choice == HIGH_TO_LOW_PRICE) {
                 System.out.println("You've selected option 5");
                 shows.sortHighToLow();
                 System.out.println();
             }
-            if (choice == QUIT){
+            if (choice == QUIT) {
                 continuation = false;
             }
         }
     }
+
+    /**
+     * this method gets the next val in the console. if the user takes in a value outside the
+     * range: it returns an error message, or if the user enters a word, it also returns an
+     * error message.
+     * @param in takes in the input from the console
+     * @param min the lowest value it'll take
+     * @param max the highest value it'll take
+     * @return either an error message (if there's an invalid input) or the number provided by the user
+     */
     public static int getNextIntVal(Scanner in, int min, int max){
-        boolean keepGoing = true;
         int num = 1;
-        while(keepGoing){
+        while (true) {
             try {
                 System.out.println("Enter a Value between 1 and 6");
                 num = in.nextInt();
                 if (num >= min && num <= max) {
-                    keepGoing = false;
                     return num;
                 } else {
                     System.out.println("Error: That is not a valid integer!");
                     System.out.println();
                 }
 
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Error: Invalid Input, please enter an int");
                 System.out.println();
                 in.nextLine();
             }
         }
-        return -1;
     }
 }
+

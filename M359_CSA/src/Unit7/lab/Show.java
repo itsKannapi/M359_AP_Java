@@ -16,8 +16,10 @@ public class Show {
         this.city = city;
     }
 
-    //toString Method in a row format and columns
-    //loop of length of performer name and add spaces
+    /**
+     * this method prints out an organized row of the performer's information
+     * @return a row of shows that shows how information is organized
+     */
     public String toString(){
         String str = date + "\t";
         str += price + "\t\t";
