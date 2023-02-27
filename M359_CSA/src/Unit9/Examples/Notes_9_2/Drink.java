@@ -8,7 +8,7 @@ public class Drink extends MenuItem{
         super(name);
         this.numOz = numOz;
         this.isFrozen = false;
-        System.out.println("This drink holds " + numOz + " ounces");
+        System.out.println(getName() + " holds " + numOz + " ounces");
     }
 
     public Drink(String name, int numOz, boolean isFrozen) {
