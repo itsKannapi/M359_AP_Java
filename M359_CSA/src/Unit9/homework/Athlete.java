@@ -15,7 +15,11 @@ public class Athlete {
     public String getName(){
         return name;
     }
-    public void setAge(){
-        
+    public void setAge(int age){
+        this.age = age;
     }
+    public void setName(String name){
+        this.name = name;
+    }
+
 }
