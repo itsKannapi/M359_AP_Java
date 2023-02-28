@@ -1,0 +1,17 @@
+package Unit9.Examples.Notes_9_3_9_4;
+
+public class Circle extends Shape{
+    private double radius = 0;
+
+    public Circle(int numSides, String color, double radius){
+        super(numSides, color);
+        this.radius = radius;
+    }
+
+    public double getRadius(){
+        return radius;
+    }
+    public void setVoid(Double r){
+        radius = r;
+    }
+}
