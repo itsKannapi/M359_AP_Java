@@ -9,6 +9,10 @@ public class Shape {
         this.color = color;
     }
 
+    public Shape(String color) {
+        this.color = color;
+    }
+
     public int getNumSides(){
         return numSides;
     }
@@ -20,5 +24,14 @@ public class Shape {
     }
     public void setColor(String s){
         color = s;
+    }
+
+    @Override
+    public String toString() {
+        return "This " + color + " shape has " + numSides + " sides.";
+    }
+    //why we used abstract classes
+    public double getArea(){
+        return 0;
     }
 }

@@ -7,11 +7,23 @@ public class Circle extends Shape{
         super(numSides, color);
         this.radius = radius;
     }
+    public Circle(double radius, String color){
+        super(color);
+        this.radius = radius;
+    }
 
     public double getRadius(){
         return radius;
     }
     public void setVoid(Double r){
         radius = r;
+    }
+
+    @Override
+    public String toString(){
+        return super.toString() + " Circle has a radius of " + radius;
+    }
+    public double getArea(){
+        return Math.PI * radius * radius;
     }
 }

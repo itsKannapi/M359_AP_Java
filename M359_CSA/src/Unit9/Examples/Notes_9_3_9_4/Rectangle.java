@@ -22,4 +22,16 @@ public class Rectangle extends Shape{
     public void setLength(double l){
         length = l;
     }
+
+    @Override
+    public String toString(){
+        return super.toString() + " Rectangle has a length of " + getWidth() + " and a length of " + getLength();
+    }
+    public double getArea(){
+        return length * width;
+    }
+    public void scaleSize(double scaleFactor){
+        width *= scaleFactor;
+        length *= scaleFactor;
+    }
 }
