@@ -13,7 +13,7 @@ public class AnimalTester
    {
        Animal[] barn = new Animal[6];
        // 1. What data type does this array hold?
-
+       // it holds the objects from the Animal class
 
        barn[0] = new Animal("Murphy");
        barn[1] = new Cow("Daisy", "Dairy");
@@ -24,12 +24,17 @@ public class AnimalTester
 
        // 2. Did I ONLY store Animal objects in this array?  If not, why do you
        //    think this was allowed?
+       // no because we added the cow and pig classes
+       // the cow and pig classes are subclasses and inherit the same variables from
+       // animal
    
        for (Animal a: barn)
             a.speak();
             // 3. What method is getting called here?  The speak method of the Animal class?
-
+            // it is calling the speak method found in the classes that is overridden by the specific animal class
        // 4. Try to summarize in 2-3 sentences WHAT you observed in this code.
+       // in this tester program, this code creates animal objects and stores them into an array.
+       // then the code prints out what sound the animal makes.
    }
    
 }
