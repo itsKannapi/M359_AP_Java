@@ -37,6 +37,6 @@ public class Hockey extends Athlete{
         this.penalties = penalties;
     }
     public String toString(){
-        return "This player has " + goals + ", " + assists + "."
+        return "This player has " + goals + ", " + assists + ".";
     }
 }
