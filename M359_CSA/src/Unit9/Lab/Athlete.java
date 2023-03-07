@@ -3,10 +3,10 @@ package Unit9.Lab;
 public class Athlete{
     private String name;
     private int totalPoints;
-    private int timePlayed;
+    private double timePlayed;
     private String sportPlayed;
 
-    public Athlete(String name, int totalPoints, int timePlayed, String sportPlayed){
+    public Athlete(String name, int totalPoints, double timePlayed, String sportPlayed){
         this.name = name;
         this.totalPoints = totalPoints;
         this.timePlayed = timePlayed;
@@ -36,7 +36,7 @@ public class Athlete{
         this.totalPoints = totalPoints;
     }
 
-    public int getTimePlayed() {
+    public double getTimePlayed() {
         return timePlayed;
     }
 

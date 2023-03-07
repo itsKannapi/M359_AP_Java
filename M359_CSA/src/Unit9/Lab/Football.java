@@ -1,11 +1,28 @@
 package Unit9.Lab;
 
 public class Football extends Athlete{
-    private int kicksMade;
+    private int fieldGoals;
     private int touchdowns;
 
+    public Football(String name, int totalPoints, double timePlayed, int fieldGoals, int touchdowns){
+        super(name,totalPoints,timePlayed,"Football");
+        this.fieldGoals = fieldGoals;
+        this.touchdowns = touchdowns;
+    }
 
-    public Football(String name, int totalPoints, int timePlayed, String sportPlayed) {
-        super(name, totalPoints, timePlayed, sportPlayed);
+    public int getFieldGoals() {
+        return fieldGoals;
+    }
+
+    public void setFieldGoals(int fieldGoals) {
+        this.fieldGoals = fieldGoals;
+    }
+
+    public int getTouchdowns() {
+        return touchdowns;
+    }
+
+    public void setTouchdowns(int touchdowns) {
+        this.touchdowns = touchdowns;
     }
 }
