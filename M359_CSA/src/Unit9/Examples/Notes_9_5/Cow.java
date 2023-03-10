@@ -18,5 +18,12 @@ public class Cow extends Animal
     {
         System.out.println("The "+ cowType + " Cow " + getName() + " says MOOOOO.");
     }
-
+    public void milkCow(){
+        if(cowType.equals("Dairy")){
+            System.out.println("We got fresh milk");
+        }
+        else{
+            System.out.println("you can't milk a beef cow! xD");
+        }
+    }
 }

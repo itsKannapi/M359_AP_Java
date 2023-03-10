@@ -25,4 +25,13 @@ public class Football extends Athlete{
     public void setTouchdowns(int touchdowns) {
         this.touchdowns = touchdowns;
     }
+
+    //simulate game method
+    // method where the if the percentage in the athlete class higher than a percentage
+    // it would then add one to any of the variables if applies to
+    // example: if % returned in athlete > 80 (80% for goals): add one to goals (applies to all stats)
+    public String toString(){
+        return super.toString() + "\n" + super.getName() +
+                " scored " + touchdowns + " touchdowns and " + fieldGoals + "field goals.";
+    }
 }

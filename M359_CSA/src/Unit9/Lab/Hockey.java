@@ -36,7 +36,12 @@ public class Hockey extends Athlete{
     public void setPenalties(int penalties) {
         this.penalties = penalties;
     }
+    //simulate game method
+    // method where the if the percentage in the athlete class higher than a percentage
+    // it would then add one to any of the variables if applies to
+    // example: if % returned in athlete > 80 (80% for goals): add one to goals (applies to all stats)
     public String toString(){
-        return "This player has " + goals + ", " + assists + ".";
+        return super.toString() + "\n" + getName() + " has " +  goals + " goals and " + assists + " assists with "
+                + penalties + " penalties";
     }
 }

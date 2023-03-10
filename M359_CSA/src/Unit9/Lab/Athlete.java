@@ -5,6 +5,7 @@ public class Athlete{
     private int totalPoints;
     private double timePlayed;
     private String sportPlayed;
+    
 
     public Athlete(String name, int totalPoints, double timePlayed, String sportPlayed){
         this.name = name;
@@ -40,10 +41,16 @@ public class Athlete{
         return timePlayed;
     }
 
+    //ask mrs.denna about using a simulate game
+    // returns a percentage
+    public int simulateGame(){
+        return (int) (Math.random() * 100);
+    }
+
     public void setTimePlayed(int timePlayed) {
         this.timePlayed = timePlayed;
     }
     public String toString(){
-        return name + " plays " + sportPlayed + " and scored " + totalPoints + " in " + timePlayed;
+        return name + " plays " + sportPlayed + " and scored " + totalPoints + " points in " + timePlayed + " minutes.";
     }
 }
