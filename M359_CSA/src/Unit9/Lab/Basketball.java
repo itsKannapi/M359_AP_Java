@@ -1,3 +1,4 @@
+// Joey and Colin
 package Unit9.Lab;
 
 public class Basketball extends Athlete{
@@ -46,13 +47,37 @@ public class Basketball extends Athlete{
         this.dunks = dunks;
     }
 
-    //simulate game method
-    // method where the if the percentage in the athlete class higher than a percentage
+    // simulate game method
+    // where the if the percentage in the athlete class higher than a percentage
     // it would then add one to any of the variables if applies to
     // example: if % returned in athlete > 80 (80% for goals): add one to goals (applies to all stats)
+    @Override
+    public void simulateGame(){
+        int percent = super.getPercentage();
+        if (percent >= 70) {
+            threePointers++;
+            super.setTotalPoints(3);
+        }
+        if (percent < 70 && percent >= 40) {
+            layUps++;
+            super.setTotalPoints(2);
+        }
+        if (percent < 40 && percent >= 30){
+            dunks++;
+            super.setTotalPoints(2);
+        }
+        if(percent < 30 && percent >= 20) {
+            freeThrows++;
+            super.setTotalPoints(1);
+        }
+        else
+            System.out.println(super.getName() + " dribbled and lost the ball");
+    }
     public String toString(){
-        return super.toString() + "\n" + getName() + " scored " + freeThrows + " free throws," +
-                threePointers + "three pointers, " + layUps + "layups, and " +
-                dunks + "dunks.";
+        return super.toString() +
+                "\n" + super.getName() + " scored " + freeThrows + " free throws, "
+                + threePointers + " three pointers, "
+                + layUps + " layups, and "
+                + dunks + " dunks.";
     }
 }

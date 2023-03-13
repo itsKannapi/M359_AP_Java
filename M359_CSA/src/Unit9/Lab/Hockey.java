@@ -1,3 +1,4 @@
+// Joey and Colin
 package Unit9.Lab;
 
 public class Hockey extends Athlete{
@@ -35,6 +36,30 @@ public class Hockey extends Athlete{
 
     public void setPenalties(int penalties) {
         this.penalties = penalties;
+    }
+
+    @Override
+    public void simulateGame(){
+        int percentage = super.getPercentage();
+        int penaltyMinProbability = (int) (Math.random() * 10);
+
+        if (percentage >= 70){
+            assists++;
+            setTotalPoints(getTotalPoints() + 1);
+            if (percentage >= 80){
+                goals++;
+                setTotalPoints(getTotalPoints() + 1);
+            }
+        }
+        if (penaltyMinProbability == 10){
+            penalties = penalties + penaltyMinProbability;
+        }
+        else if (penaltyMinProbability == 5){
+            penalties = penalties + penaltyMinProbability;
+        }
+        else if (penaltyMinProbability <= 2){
+            penalties = penalties + penaltyMinProbability;
+        }
     }
     //simulate game method
     // method where the if the percentage in the athlete class higher than a percentage

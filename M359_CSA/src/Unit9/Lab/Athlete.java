@@ -1,3 +1,4 @@
+// Joey and Colin
 package Unit9.Lab;
 
 public class Athlete{
@@ -5,20 +6,46 @@ public class Athlete{
     private int totalPoints;
     private double timePlayed;
     private String sportPlayed;
-    
 
-    public Athlete(String name, int totalPoints, double timePlayed, String sportPlayed){
+    private int percentage = 0;
+
+    public Athlete(String name, int totalPoints, double timePlayed, String sportPlayed) {
         this.name = name;
         this.totalPoints = totalPoints;
         this.timePlayed = timePlayed;
         this.sportPlayed = sportPlayed;
     }
 
-    public String getName(){
+    public int getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(int percentage) {
+        this.percentage = percentage;
+    }
+
+    public String getName() {
         return name;
     }
-    public void setName(String n){
-        name = n;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getTotalPoints() {
+        return totalPoints;
+    }
+
+    public void setTotalPoints(int totalPoints) {
+        this.totalPoints += totalPoints;
+    }
+
+    public double getTimePlayed() {
+        return timePlayed;
+    }
+
+    public void setTimePlayed(double timePlayed) {
+        this.timePlayed = timePlayed;
     }
 
     public String getSportPlayed() {
@@ -29,28 +56,10 @@ public class Athlete{
         this.sportPlayed = sportPlayed;
     }
 
-    public int getTotalPoints() {
-        return totalPoints;
-    }
-
-    public void setTotalPoints(int totalPoints) {
-        this.totalPoints = totalPoints;
-    }
-
-    public double getTimePlayed() {
-        return timePlayed;
-    }
-
-    //ask mrs.denna about using a simulate game
-    // returns a percentage
-    public int simulateGame(){
-        return (int) (Math.random() * 100);
-    }
-
-    public void setTimePlayed(int timePlayed) {
-        this.timePlayed = timePlayed;
+    public void simulateGame(){
+        percentage = (int) (Math.random() * 100);
     }
     public String toString(){
-        return name + " plays " + sportPlayed + " and scored " + totalPoints + " points in " + timePlayed + " minutes.";
+        return name + " plays " + sportPlayed + " and scored " + totalPoints + " in " + timePlayed + " minutes.";
     }
 }
