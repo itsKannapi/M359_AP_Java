@@ -1,6 +1,8 @@
 // Joey and Colin
 package Unit9.Lab;
 
+import java.util.ArrayList;
+
 public class AthleteTester {
     public static void main(String[] args) {
         // what our driver does:
@@ -8,20 +10,40 @@ public class AthleteTester {
         we have the array list of athletes ranging from all different sports and we keep track of how many
         total points each player(s) have in each sports with the specific points after a simulated "season"
          */
-        Athlete michael = new Athlete("Michael",15,10,"Tennis");
-        System.out.println(michael);
+        ArrayList<Athlete> athletes = new ArrayList<Athlete>();
+        final int min = 1;
+        final int max = 10;
+        final int range = max - min + 1;
 
-        Athlete Jack = new Hockey("Jack",50,90, "Hockey",
-                20,30,4);
-        System.out.println(Jack);
+        Athlete Nadal = new Athlete("Nadal",0,0,"Tennis");
+        athletes.add(Nadal);
+        Athlete Williams = new Athlete("Williams",0,0,"Tennis");
+        athletes.add(Williams);
 
-        Athlete MJ = new Basketball("MJ", 34,20,5,7,6,2);
-        System.out.println(MJ);
+        Athlete Jack = new Hockey("Jack",0,0, 0,0,0);
+        athletes.add(Jack);
+        Athlete Connor = new Hockey("Connor",0,0, 0,0,0);
+        athletes.add(Connor);
 
-        System.out.println();
-        //simulate game method
-                // method where the if the percentage in the athlete class higher than a percentage
-                // it would then add one to any of the variables if applies to
-                // example: if % returned in athlete > 80 (80% for goals): add one to goals (applies to all stats));
+
+        Athlete MJ = new Basketball("MJ", 0,0,0,0,0,0);
+        athletes.add(MJ);
+        Athlete KB = new Basketball("KB", 0,0,0,0,0,0);
+        athletes.add(KB);
+
+        Athlete DJM = new Football("DJM",0,0,0,0);
+        athletes.add(DJM);
+        Athlete JF = new Football("JF",0,0,0,0);
+        athletes.add(JF);
+
+        for(Athlete a: athletes){
+            int numSimGame = (int) ((Math.random() * range) + min);
+            for (int i = 0; i < numSimGame; i++){
+                a.simulateGame();
+            }
+            System.out.println(a);
+            System.out.println();
+        }
+
     }
 }

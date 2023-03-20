@@ -5,9 +5,18 @@ public class Hockey extends Athlete{
     private int goals;
     private int assists;
     private int penalties;
-    public Hockey(String name, int totalPoints, int timePlayed, String sportPlayed,
-                  int goals, int assists, int penalties) {
-        super(name, totalPoints, timePlayed, sportPlayed);
+
+    /**
+     * Basic Constuctor for the Hockey Class
+     * @param name returns name of athlete
+     * @param totalPoints returns total points scored by the athlete
+     * @param timePlayed returns the time played
+     * @param goals returns the amount of the goals the player scores
+     * @param assists returns the amount of assists the player scores
+     * @param penalties returns the penalty minutes a players gets
+     */
+    public Hockey(String name, int totalPoints, int timePlayed, int goals, int assists, int penalties) {
+        super(name, totalPoints, timePlayed, "Hockey");
         this.goals = goals;
         this.assists = assists;
         this.penalties = penalties;
@@ -38,17 +47,38 @@ public class Hockey extends Athlete{
         this.penalties = penalties;
     }
 
+    /**
+     * simulateGame() method
+     * runs the simulateGame() from the super athlete class and returns
+     * the percentage found from the athlete class
+     * and sets it as one only accessible in the method.
+     * then it also makes a randomized percentage for the penalties that
+     * is only specific to this class. this runs x amount of times found in AthleteTester
+     *
+     * if the percentage is above 70, the player gets added an assist and totalpoints is added one
+     * and if the percentage is above 80, the player also gets added a goal and the totalpoints is added one
+     *
+     * for penalties
+     * if the percentage is 10, the player gets 10 mins added
+     * if the percentage is 5, the player gets 5 mins added
+     * if the percentage is 2, the player gets 2 mins added
+     *
+     * otherwise, 60 minutes gets added to their total minutes played
+     *
+     * This method overrides the superclass method simulateGame()
+     */
     @Override
     public void simulateGame(){
+        super.simulateGame();
         int percentage = super.getPercentage();
         int penaltyMinProbability = (int) (Math.random() * 10);
 
         if (percentage >= 70){
             assists++;
-            setTotalPoints(getTotalPoints() + 1);
+            setTotalPoints(1);
             if (percentage >= 80){
                 goals++;
-                setTotalPoints(getTotalPoints() + 1);
+                setTotalPoints(1);
             }
         }
         if (penaltyMinProbability == 10){
@@ -60,13 +90,15 @@ public class Hockey extends Athlete{
         else if (penaltyMinProbability <= 2){
             penalties = penalties + penaltyMinProbability;
         }
+        super.setTimePlayed(60);
     }
-    //simulate game method
-    // method where the if the percentage in the athlete class higher than a percentage
-    // it would then add one to any of the variables if applies to
-    // example: if % returned in athlete > 80 (80% for goals): add one to goals (applies to all stats)
+
+    /**
+     * A basic custom toString that prints the data of the subclass Hockey
+     * @return - returns a string
+     */
     public String toString(){
-        return super.toString() + "\n" + getName() + " has " +  goals + " goals and " + assists + " assists with "
+        return super.toString() + "\n" + getName() + " has " +  goals + " goal(s) and " + assists + " assist(s) with "
                 + penalties + " penalties";
     }
 }

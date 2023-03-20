@@ -7,7 +7,8 @@ public class Basketball extends Athlete{
     private int layUps;
     private int dunks;
 
-    public Basketball(String name, int totalPoints, double timePlayed, int freeThrows, int threePointers, int layUps, int dunks){
+    public Basketball(String name, int totalPoints, int timePlayed, int freeThrows,
+                      int threePointers, int layUps, int dunks){
         super(name,totalPoints,timePlayed,"Basketball");
         this.freeThrows = freeThrows;
         this.threePointers = threePointers;
@@ -53,31 +54,41 @@ public class Basketball extends Athlete{
     // example: if % returned in athlete > 80 (80% for goals): add one to goals (applies to all stats)
     @Override
     public void simulateGame(){
+        super.simulateGame();
         int percent = super.getPercentage();
         if (percent >= 70) {
             threePointers++;
             super.setTotalPoints(3);
+            setTimePlayed(5);
         }
         if (percent < 70 && percent >= 40) {
             layUps++;
             super.setTotalPoints(2);
+            setTimePlayed(5);
         }
         if (percent < 40 && percent >= 30){
             dunks++;
             super.setTotalPoints(2);
+            setTimePlayed(5);
         }
         if(percent < 30 && percent >= 20) {
             freeThrows++;
             super.setTotalPoints(1);
+            setTimePlayed(5);
         }
-        else
-            System.out.println(super.getName() + " dribbled and lost the ball");
+        else {
+            setTimePlayed(10);
+        }
     }
+    /**
+     * A basic custom toString that prints the data of the subclass Basketball
+     * @return - returns a string
+     */
     public String toString(){
         return super.toString() +
                 "\n" + super.getName() + " scored " + freeThrows + " free throws, "
                 + threePointers + " three pointers, "
                 + layUps + " layups, and "
-                + dunks + " dunks.";
+                + dunks + " dunks";
     }
 }
